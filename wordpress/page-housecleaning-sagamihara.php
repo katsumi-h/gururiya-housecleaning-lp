@@ -1,0 +1,1164 @@
+<?php
+/*
+ * Template Name: 相模原ハウスクリーニングLP
+ * Description: 枝LP①｜相模原市のハウスクリーニング
+ */
+$hc_contact_url = add_query_arg(
+  'service',
+  'housecleaning-sagamihara',
+  home_url('/contact/')
+);
+?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>相模原市のハウスクリーニング｜ぐるり屋本舗</title>
+  <meta name="description" content="相模原市のハウスクリーニング。浴室・キッチン・レンジフード・トイレなど、気になる箇所からご相談ください。作業内容と金額を確認してから実施します。見積もり無料。">
+  <?php wp_head(); ?>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body.hc-lp {
+      margin: 0;
+      color: #203139;
+      background: #fff;
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .hc-lp a { color: inherit; text-decoration: none; }
+    .hc-lp img { display: block; max-width: 100%; height: auto; }
+    .hc-lp button, .hc-lp a { -webkit-tap-highlight-color: transparent; }
+    .hc-lp :focus-visible { outline: 3px solid #ef7d3b; outline-offset: 3px; }
+
+    :root {
+      --hc-ink: #203139;
+      --hc-muted: #627079;
+      --hc-blue: #166b83;
+      --hc-blue-dark: #0d4f63;
+      --hc-aqua: #e8f7f8;
+      --hc-cream: #fff9ef;
+      --hc-orange: #e96c2b;
+      --hc-orange-dark: #bf4f18;
+      --hc-line: #dce7e9;
+      --hc-shadow: 0 18px 50px rgba(21, 78, 92, .12);
+    }
+
+    .hc-container { width: min(100% - 32px, 1080px); margin-inline: auto; }
+    .hc-narrow { width: min(100% - 32px, 820px); margin-inline: auto; }
+    .hc-section { padding: 76px 0; }
+    .hc-section--tint { background: #f5fbfb; }
+    .hc-section--cream { background: var(--hc-cream); }
+    .hc-eyebrow {
+      margin: 0 0 8px;
+      color: var(--hc-blue);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .hc-title {
+      margin: 0 0 18px;
+      color: var(--hc-ink);
+      font-size: clamp(1.65rem, 4vw, 2.35rem);
+      line-height: 1.4;
+      text-align: center;
+    }
+    .hc-title strong { color: var(--hc-orange-dark); }
+    .hc-lead {
+      max-width: 720px;
+      margin: 0 auto 36px;
+      color: var(--hc-muted);
+      text-align: center;
+    }
+    .hc-note {
+      margin: 18px 0 0;
+      color: var(--hc-muted);
+      font-size: .82rem;
+      line-height: 1.7;
+    }
+    .hc-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 12px;
+      border: 1px solid rgba(22, 107, 131, .25);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--hc-blue-dark);
+      font-size: .78rem;
+      font-weight: 600;
+    }
+
+    .hc-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(22, 107, 131, .12);
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(12px);
+    }
+    .hc-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 66px;
+      gap: 16px;
+    }
+    .hc-brand { display: flex; flex-direction: column; line-height: 1.2; }
+    .hc-brand__sub { color: var(--hc-blue); font-size: .68rem; font-weight: 600; }
+    .hc-brand__main { color: var(--hc-ink); font-size: 1.05rem; font-weight: 600; }
+    .hc-header__tel {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--hc-orange);
+      color: #fff;
+      font-size: .92rem;
+      font-weight: 600;
+      box-shadow: 0 8px 22px rgba(233, 108, 43, .24);
+    }
+
+    .hc-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0 60px;
+      background:
+        radial-gradient(circle at 86% 16%, rgba(87, 201, 206, .22) 0 12%, transparent 13%),
+        radial-gradient(circle at 8% 92%, rgba(233, 108, 43, .12) 0 15%, transparent 16%),
+        linear-gradient(145deg, #f5ffff 0%, #fffaf2 100%);
+    }
+    .hc-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -130px auto;
+      width: 360px;
+      height: 360px;
+      border: 54px solid rgba(22, 107, 131, .06);
+      border-radius: 50%;
+    }
+    .hc-hero__grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+      align-items: center;
+      gap: 54px;
+    }
+    .hc-hero__area {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--hc-blue-dark);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .hc-hero__area::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--hc-orange);
+    }
+    .hc-hero h1 {
+      margin: 0;
+      font-size: clamp(2.15rem, 5.5vw, 4rem);
+      line-height: 1.18;
+      letter-spacing: -.035em;
+    }
+    .hc-hero h1 em {
+      display: block;
+      color: var(--hc-blue);
+      font-size: .56em;
+      font-style: normal;
+      letter-spacing: .02em;
+      margin-bottom: 10px;
+    }
+    .hc-hero__copy {
+      max-width: 650px;
+      margin: 24px 0 26px;
+      color: #40545e;
+      font-size: 1.05rem;
+    }
+    .hc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .hc-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hc-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 13px 24px;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      font-weight: 600;
+      line-height: 1.35;
+      text-align: center;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .hc-button:hover { transform: translateY(-2px); }
+    .hc-button--primary {
+      background: var(--hc-orange);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(233, 108, 43, .25);
+    }
+    .hc-button--secondary {
+      border-color: var(--hc-blue);
+      background: #fff;
+      color: var(--hc-blue-dark);
+    }
+    .hc-button small { display: block; font-size: .7rem; font-weight: 600; opacity: .92; }
+    .hc-hero__panel {
+      position: relative;
+      padding: 30px;
+      border: 1px solid rgba(22, 107, 131, .16);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: var(--hc-shadow);
+    }
+    .hc-hero__panel::before {
+      content: "CLEAN";
+      display: block;
+      margin-bottom: 18px;
+      color: rgba(22, 107, 131, .18);
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: .15em;
+      line-height: 1;
+    }
+    .hc-hero__panel h2 { margin: 0 0 12px; font-size: 1.3rem; line-height: 1.45; }
+    .hc-checks { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .hc-checks li { position: relative; padding-left: 30px; color: #43555f; }
+    .hc-checks li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      display: grid;
+      place-items: center;
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background: var(--hc-aqua);
+      color: var(--hc-blue);
+      font-size: .76rem;
+      font-weight: 900;
+    }
+    .hc-proof {
+      border-top: 1px solid var(--hc-line);
+      border-bottom: 1px solid var(--hc-line);
+      background: #fff;
+    }
+    .hc-proof__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .hc-proof__item {
+      padding: 20px 14px;
+      text-align: center;
+    }
+    .hc-proof__item + .hc-proof__item { border-left: 1px solid var(--hc-line); }
+    .hc-proof__item strong { display: block; color: var(--hc-blue-dark); font-size: 1.02rem; }
+    .hc-proof__item span { color: var(--hc-muted); font-size: .75rem; }
+
+    .hc-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .hc-card {
+      padding: 26px;
+      border: 1px solid var(--hc-line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(21, 78, 92, .06);
+    }
+    .hc-card__icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      background: var(--hc-aqua);
+      color: var(--hc-blue);
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+    .hc-card h3 { margin: 0 0 9px; font-size: 1.08rem; line-height: 1.5; }
+    .hc-card p { margin: 0; color: var(--hc-muted); font-size: .91rem; }
+    .hc-step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .hc-step {
+      position: relative;
+      padding: 28px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: var(--hc-shadow);
+    }
+    .hc-step__no { color: var(--hc-orange); font-size: .78rem; font-weight: 900; letter-spacing: .08em; }
+    .hc-step h3 { margin: 6px 0 8px; font-size: 1.08rem; }
+    .hc-step p { margin: 0; color: var(--hc-muted); font-size: .9rem; }
+
+    .hc-profile {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 38px;
+      align-items: center;
+      padding: 36px;
+      border-radius: 24px;
+      background: var(--hc-blue-dark);
+      color: #fff;
+      box-shadow: var(--hc-shadow);
+    }
+    .hc-profile__mark {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      font-size: 4rem;
+      font-weight: 900;
+    }
+    .hc-profile__role { margin: 0; color: #bfeaf0; font-size: .8rem; font-weight: 800; }
+    .hc-profile h2 { margin: 4px 0 18px; font-size: 1.75rem; }
+    .hc-profile p { margin: 0 0 12px; color: rgba(255,255,255,.88); }
+    .hc-profile p:last-child { margin-bottom: 0; }
+    .hc-message {
+      padding: 32px;
+      border-left: 5px solid var(--hc-orange);
+      border-radius: 4px 18px 18px 4px;
+      background: #fff;
+      box-shadow: 0 10px 35px rgba(21, 78, 92, .08);
+    }
+    .hc-message p { margin: 0 0 14px; }
+    .hc-message p:last-child { margin-bottom: 0; }
+
+    .hc-voices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .hc-voice {
+      padding: 30px;
+      border: 1px solid #f0dbc8;
+      border-radius: 20px;
+      background: #fff;
+    }
+    .hc-stars { color: #e89021; font-size: 1.05rem; letter-spacing: .08em; }
+    .hc-voice blockquote { margin: 14px 0 18px; color: #344851; font-size: 1rem; }
+    .hc-voice footer { color: var(--hc-muted); font-size: .82rem; }
+
+    .hc-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .hc-service {
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+      overflow: hidden;
+      border: 1px solid var(--hc-line);
+      border-radius: 20px;
+      background: #fff;
+    }
+    .hc-service__top { padding: 22px 22px 14px; }
+    .hc-service__label { color: var(--hc-blue); font-size: .75rem; font-weight: 900; letter-spacing: .08em; }
+    .hc-service h3 { margin: 5px 0 10px; font-size: 1.15rem; }
+    .hc-service p { margin: 0; color: var(--hc-muted); font-size: .86rem; }
+    .hc-service__price {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      padding: 15px 22px;
+      background: var(--hc-aqua);
+      color: var(--hc-blue-dark);
+    }
+    .hc-service__price strong { font-size: 1.25rem; }
+    .hc-service__price span { font-size: .7rem; }
+    .hc-service--wide { grid-column: span 3; min-height: auto; }
+    .hc-service--wide .hc-service__top { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; }
+
+    .hc-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: flow; }
+    .hc-flow__item {
+      position: relative;
+      padding: 22px 16px;
+      border: 1px solid var(--hc-line);
+      border-radius: 15px;
+      background: #fff;
+      text-align: center;
+      counter-increment: flow;
+    }
+    .hc-flow__item::before {
+      content: counter(flow, decimal-leading-zero);
+      display: block;
+      color: var(--hc-orange);
+      font-size: .75rem;
+      font-weight: 900;
+    }
+    .hc-flow__item strong { display: block; margin: 5px 0 4px; }
+    .hc-flow__item span { color: var(--hc-muted); font-size: .78rem; }
+
+    .hc-price-wrap { overflow-x: auto; border: 1px solid var(--hc-line); border-radius: 18px; background: #fff; }
+    .hc-price-table { width: 100%; min-width: 680px; border-collapse: collapse; }
+    .hc-price-table th, .hc-price-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--hc-line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .hc-price-table th { background: var(--hc-blue-dark); color: #fff; font-size: .8rem; }
+    .hc-price-table tr:last-child td { border-bottom: 0; }
+    .hc-price-table td:nth-child(2) { color: var(--hc-orange-dark); font-weight: 900; white-space: nowrap; }
+    .hc-price-table small { display: block; color: var(--hc-muted); line-height: 1.5; }
+    .hc-price-attention {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      background: #fff4e9;
+      color: #70401f;
+      font-size: .85rem;
+    }
+
+    .hc-faq { display: grid; gap: 12px; }
+    .hc-faq details {
+      border: 1px solid var(--hc-line);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .hc-faq summary {
+      position: relative;
+      padding: 20px 52px 20px 22px;
+      cursor: pointer;
+      font-weight: 900;
+      list-style: none;
+    }
+    .hc-faq summary::-webkit-details-marker { display: none; }
+    .hc-faq summary::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      color: var(--hc-blue);
+      font-size: 1.4rem;
+      transform: translateY(-50%);
+    }
+    .hc-faq details[open] summary::after { content: "−"; }
+    .hc-faq__answer { padding: 0 22px 20px; color: var(--hc-muted); font-size: .91rem; }
+    .hc-faq__answer p { margin: 0; }
+
+    .hc-cta {
+      padding: 54px 0;
+      background: var(--hc-blue-dark);
+      color: #fff;
+      text-align: center;
+    }
+    .hc-cta h2 { margin: 0 0 12px; font-size: clamp(1.55rem, 4vw, 2.2rem); }
+    .hc-cta > .hc-container > p { margin: 0 auto 24px; color: rgba(255,255,255,.78); }
+    .hc-cta .hc-actions { justify-content: center; }
+    .hc-cta .hc-button--secondary { border-color: #fff; background: transparent; color: #fff; }
+
+    .hc-legal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .hc-legal__card {
+      padding: 24px;
+      border: 1px solid var(--hc-line);
+      border-radius: 16px;
+      background: #fff;
+    }
+    .hc-legal__card h3 { margin: 0 0 10px; font-size: 1rem; }
+    .hc-legal__card ul { margin: 0; padding-left: 1.2em; color: var(--hc-muted); font-size: .88rem; }
+    .hc-legal__links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; }
+    .hc-legal__links a { color: var(--hc-blue); font-size: .84rem; font-weight: 800; text-decoration: underline; }
+
+    .hc-footer { padding: 32px 0 98px; background: #17282f; color: rgba(255,255,255,.72); }
+    .hc-footer__top { display: flex; justify-content: space-between; gap: 24px; }
+    .hc-footer strong { color: #fff; }
+    .hc-footer p { margin: 6px 0 0; font-size: .78rem; }
+    .hc-footer a { text-decoration: underline; }
+    .hc-sticky {
+      position: fixed;
+      z-index: 120;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 8px max(12px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+      background: rgba(255,255,255,.97);
+      border-top: 2px solid var(--hc-line);
+      box-shadow: 0 -8px 26px rgba(18, 60, 70, .13);
+    }
+    .hc-sticky__inner {
+      display: flex;
+      align-items: stretch;
+      gap: 8px;
+      width: min(100%, 1080px);
+      min-height: 64px;
+      margin: 0 auto;
+    }
+    .hc-sticky__brand {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 16px;
+      border-right: 1px solid var(--hc-line);
+      color: #222;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    .hc-sticky__brand span { color: #444; font-size: .65rem; font-weight: 500; }
+    .hc-sticky__brand strong { font-size: 1.08rem; font-weight: 600; }
+    .hc-sticky__tags {
+      display: grid;
+      flex: 0 0 auto;
+      grid-template-columns: 1fr 1fr;
+      align-content: center;
+      gap: 4px;
+      padding: 0 14px 0 6px;
+      border-right: 1px solid var(--hc-line);
+    }
+    .hc-sticky__tags span {
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--hc-blue);
+      color: #fff;
+      font-size: .62rem;
+      font-weight: 600;
+      line-height: 1.25;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .hc-sticky a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: .86rem;
+      font-weight: 600;
+      line-height: 1.25;
+      text-align: center;
+    }
+    .hc-sticky__tel { flex: 1 1 300px; margin-left: auto; background: var(--hc-orange); }
+    .hc-sticky__tel strong { font-size: clamp(1rem, 2vw, 1.28rem); font-weight: 600; letter-spacing: .02em; }
+    .hc-sticky__form { flex: 0 0 150px; background: var(--hc-form); }
+    .hc-sticky__form strong { font-weight: 600; }
+    .hc-sticky__tel-mobile { display: none; }
+    .hc-sticky small { display: block; margin-top: 2px; font-size: .62rem; font-weight: 400; opacity: .9; }
+
+    @media (max-width: 860px) {
+      .hc-hero__grid { grid-template-columns: 1fr; gap: 32px; }
+      .hc-hero__panel { max-width: 620px; }
+      .hc-card-grid, .hc-step-grid, .hc-service-grid { grid-template-columns: repeat(2, 1fr); }
+      .hc-service--wide { grid-column: span 2; }
+      .hc-flow { grid-template-columns: repeat(2, 1fr); }
+      .hc-sticky__brand, .hc-sticky__tags { display: none; }
+      .hc-sticky__tel { margin-left: 0; }
+    }
+    @media (max-width: 640px) {
+      .hc-section { padding: 56px 0; }
+      .hc-header__tel { padding: 8px 12px; font-size: .78rem; }
+      .hc-brand__sub { display: none; }
+      .hc-hero { padding: 48px 0 44px; }
+      .hc-hero__copy { font-size: .96rem; }
+      .hc-actions { flex-direction: column; }
+      .hc-button { width: 100%; }
+      .hc-proof__grid { grid-template-columns: 1fr; }
+      .hc-proof__item + .hc-proof__item { border-top: 1px solid var(--hc-line); border-left: 0; }
+      .hc-card-grid, .hc-step-grid, .hc-service-grid, .hc-voices, .hc-legal { grid-template-columns: 1fr; }
+      .hc-service--wide { grid-column: auto; }
+      .hc-service--wide .hc-service__top { grid-template-columns: 1fr; gap: 4px; }
+      .hc-profile { grid-template-columns: 1fr; padding: 28px; }
+      .hc-profile__mark { width: 130px; }
+      .hc-flow { grid-template-columns: 1fr 1fr; }
+      .hc-footer__top { flex-direction: column; }
+      .hc-sticky__inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
+      .hc-sticky__tel, .hc-sticky__form { min-width: 0; padding-inline: 8px; }
+      .hc-sticky__tel strong { font-size: .9rem; }
+      .hc-sticky__tel-desktop { display: none; }
+      .hc-sticky__tel-mobile { display: inline; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hc-button { transition: none; }
+    }
+
+    /* =========================================
+       ぐるり屋本舗トップページとのブランド統一
+       未確認の訴求は追加せず、色・余白・形・写真表現のみ合わせる
+    ========================================= */
+    :root {
+      --hc-ink: #333;
+      --hc-muted: #666;
+      --hc-blue: #0288d1;
+      --hc-blue-dark: #0277bd;
+      --hc-aqua: #fff3f3;
+      --hc-cream: #fff3f3;
+      --hc-orange: #e53935;
+      --hc-orange-dark: #c62828;
+      --hc-form: #ff6b35;
+      --hc-line: #e0e0e0;
+      --hc-shadow: 0 4px 14px rgba(0, 0, 0, .10);
+    }
+    .hc-container { width: min(100% - 32px, 780px); }
+    .hc-section { padding: 52px 0; }
+    .hc-section--tint { background: #f7f8fa; }
+    .hc-section--cream { background: #fff3f3; }
+    .hc-eyebrow { display: none; }
+    .hc-title {
+      margin-bottom: 32px;
+      color: #222;
+      font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+      font-weight: 900;
+      line-height: 1.45;
+    }
+    .hc-title strong { color: var(--hc-orange); }
+
+    .hc-header {
+      border-bottom: 0;
+      background: var(--hc-blue);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .20);
+      backdrop-filter: none;
+    }
+    .hc-header__inner { min-height: 60px; }
+    .hc-brand { flex-direction: row; align-items: baseline; gap: 6px; }
+    .hc-brand__sub, .hc-brand__main { color: #fff; }
+    .hc-brand__sub { font-size: .78rem; opacity: .9; }
+    .hc-brand__main { font-size: 1.25rem; }
+    .hc-header__tel {
+      min-height: auto;
+      padding: 7px 14px;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .15);
+      box-shadow: none;
+      color: #fff;
+      font-size: .8rem;
+    }
+
+    .hc-hero {
+      isolation: isolate;
+      padding: 44px 0 52px;
+      background: #173044;
+      color: #fff;
+    }
+    .hc-hero::after { display: none; }
+    .hc-hero__bg { position: absolute; inset: 0; z-index: -2; }
+    .hc-hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .hc-hero__bg span { position: absolute; inset: 0; background: rgba(10, 40, 64, .35); }
+    .hc-hero__grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+      text-align: center;
+    }
+    .hc-hero__area {
+      justify-content: center;
+      margin-bottom: 14px;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, .35);
+    }
+    .hc-hero__area::before { background: #ffd54f; }
+    .hc-tags { justify-content: center; margin-bottom: 22px; }
+    .hc-tag {
+      min-height: 30px;
+      padding: 6px 14px;
+      border: 0;
+      background: var(--hc-orange);
+      color: #fff;
+      font-size: .75rem;
+      box-shadow: 0 2px 8px rgba(198, 40, 40, .20);
+    }
+    .hc-hero h1 {
+      color: #fff;
+      font-size: clamp(1.8rem, 6vw, 2.65rem);
+      line-height: 1.3;
+      letter-spacing: 0;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+    }
+    .hc-hero h1 em {
+      color: #ffd54f;
+      font-size: .68em;
+      letter-spacing: 0;
+    }
+    .hc-hero__copy {
+      max-width: 720px;
+      margin: 18px auto 22px;
+      color: rgba(255, 255, 255, .95);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.9;
+      text-align: center;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, .35);
+    }
+    .hc-actions { justify-content: center; }
+    .hc-button { border-radius: 10px; }
+    .hc-button--primary {
+      background: var(--hc-orange);
+      box-shadow: 0 4px 14px rgba(229, 57, 53, .35);
+    }
+    .hc-button--secondary {
+      border-color: transparent;
+      background: var(--hc-form);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(255, 107, 53, .35);
+    }
+    .hc-hero__panel {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 22px 24px;
+      border: 0;
+      border-left: 4px solid var(--hc-orange);
+      border-radius: 0 10px 10px 0;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
+      color: #222;
+      text-align: left;
+    }
+    .hc-hero__panel::before { display: none; }
+    .hc-hero__panel h2 { text-align: center; }
+    .hc-checks li { color: #222; font-weight: 700; }
+    .hc-checks li::before { background: #e8f5e9; color: #28a745; }
+
+    .hc-proof { border-color: var(--hc-line); }
+    .hc-proof__item strong { color: var(--hc-blue); }
+    .hc-card {
+      border: 0;
+      border-left: 4px solid var(--hc-orange);
+      border-radius: 0 10px 10px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .07);
+    }
+    .hc-card__icon { border-radius: 50%; background: #fff3f3; color: var(--hc-orange); }
+    .hc-step { border-top: 4px solid var(--hc-orange); border-radius: 10px; box-shadow: var(--hc-shadow); }
+    .hc-step__no { color: var(--hc-orange); }
+    .hc-profile { border-radius: 12px; background: var(--hc-blue); }
+    .hc-profile__role { color: rgba(255, 255, 255, .86); }
+    .hc-message { border-left-color: var(--hc-orange); border-radius: 0 10px 10px 0; }
+    .hc-voice { border-color: #f1c7c5; border-radius: 12px; }
+    .hc-service { border-radius: 12px; }
+    .hc-service__label { color: var(--hc-orange); }
+    .hc-service__price { background: #fff3f3; color: var(--hc-orange-dark); }
+    .hc-flow__item { border-radius: 10px; }
+    .hc-flow__item::before { color: var(--hc-orange); }
+    .hc-price-wrap { border-radius: 10px; }
+    .hc-price-table th { background: var(--hc-blue); }
+    .hc-price-attention { background: #fff3f3; color: #6f2d2b; }
+    .hc-faq details { border-radius: 8px; }
+    .hc-faq summary::after { color: var(--hc-orange); }
+    .hc-cta { background: var(--hc-blue); }
+    .hc-cta .hc-button--secondary { border-color: transparent; background: var(--hc-form); color: #fff; }
+    .hc-footer { background: #263238; }
+    .hc-sticky { box-shadow: 0 -4px 12px rgba(0, 0, 0, .14); }
+    .hc-sticky__tel { background: var(--hc-orange); }
+    .hc-sticky__form { background: var(--hc-form); }
+
+    /* 後から実写真へ差し替える画像枠。公開前に全枠を画像へ置換する。 */
+    .hc-image-slot {
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 2px dashed #aebbc2;
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, rgba(2, 136, 209, .07), rgba(229, 57, 53, .07)),
+        repeating-linear-gradient(-45deg, rgba(255,255,255,.75) 0 12px, rgba(247,248,250,.75) 12px 24px);
+      color: #52636c;
+      text-align: center;
+    }
+    .hc-image-slot__inner { padding: 18px; }
+    .hc-image-slot__icon { display: block; margin-bottom: 7px; font-size: 1.7rem; line-height: 1; }
+    .hc-image-slot strong { display: block; color: #34454e; font-size: .9rem; }
+    .hc-image-slot small { display: block; margin-top: 4px; font-size: .7rem; line-height: 1.5; }
+    .hc-image-slot--wide { aspect-ratio: 16 / 9; margin: 0 auto 28px; }
+    .hc-image-slot--profile { width: 100%; aspect-ratio: 1; border-color: rgba(255,255,255,.65); border-radius: 50%; background: rgba(255,255,255,.12); color: #fff; }
+    .hc-image-slot--profile strong { color: #fff; }
+    .hc-image-slot--service { aspect-ratio: 4 / 3; border-width: 0 0 2px; border-radius: 0; }
+    .hc-image-slot--voice { aspect-ratio: 4 / 3; margin-bottom: 20px; }
+    .hc-ba-wrap { margin-bottom: 36px; }
+    .hc-visual-heading { margin: 0 0 16px; color: #222; font-size: 1.05rem; text-align: center; }
+    .hc-ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .hc-ba-grid .hc-image-slot { aspect-ratio: 4 / 3; }
+
+    @media (max-width: 640px) {
+      .hc-section { padding: 46px 0; }
+      .hc-brand { flex-direction: column; align-items: flex-start; gap: 0; }
+      .hc-brand__sub { display: block; font-size: .62rem; }
+      .hc-brand__main { font-size: 1rem; }
+      .hc-header__tel { padding: 6px 10px; font-size: .72rem; }
+      .hc-hero { padding: 34px 0 42px; }
+      .hc-hero__bg img { object-position: 58% top; }
+      .hc-tags { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .hc-tag { justify-content: center; padding-inline: 8px; white-space: nowrap; }
+      .hc-hero__panel { padding: 20px 16px; }
+      .hc-image-slot--wide { aspect-ratio: 4 / 3; }
+      .hc-ba-grid { grid-template-columns: 1fr; }
+      .hc-image-slot--profile { width: 150px; }
+    }
+  </style>
+</head>
+<body <?php body_class('hc-lp'); ?>>
+<?php wp_body_open(); ?>
+
+<header class="hc-header">
+  <div class="hc-container hc-header__inner">
+    <a class="hc-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="ぐるり屋本舗 トップページ">
+      <span class="hc-brand__sub">相模原市のハウスクリーニング</span>
+      <span class="hc-brand__main">ぐるり屋本舗</span>
+    </a>
+    <a class="hc-header__tel" href="<?php echo esc_url($hc_contact_url); ?>">✉️ お問い合わせ</a>
+  </div>
+</header>
+
+<main>
+  <!-- 1. 心をつかむ -->
+  <section class="hc-hero">
+    <div class="hc-hero__bg" aria-hidden="true">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/hero_new.png" alt="">
+      <span></span>
+    </div>
+    <div class="hc-container hc-hero__grid">
+      <div>
+        <p class="hc-hero__area">相模原市で訪問対応</p>
+        <div class="hc-tags" aria-label="サービスの特徴">
+          <span class="hc-tag">✅ 見積もり・現地確認無料</span>
+          <span class="hc-tag">✅ 基本は代表本人が訪問</span>
+          <span class="hc-tag">✅ 9:00〜19:00・年中無休</span>
+        </div>
+        <h1><em>気になる1箇所から相談できる</em>相模原市の<br>ハウスクリーニング</h1>
+        <p class="hc-hero__copy">落としにくい水回りや、お部屋の気になる汚れをご相談ください。清掃箇所と状態を確認し、作業内容と金額をお伝えしてから日程を決めます。</p>
+        <div class="hc-actions">
+          <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で作業内容を相談する<br><small>090-2162-6510／9:00〜19:00</small></a>
+          <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ フォームで希望箇所を送る</a>
+        </div>
+      </div>
+      <aside class="hc-hero__panel" aria-label="依頼前の確認事項">
+        <h2>作業を始める前に、内容と金額を確認します</h2>
+        <ul class="hc-checks">
+          <li>気になる場所と汚れの状態を確認</li>
+          <li>できる作業と難しい作業をご説明</li>
+          <li>作業範囲が変わらなければ、確定後の追加料金なし</li>
+          <li>見積もり後・作業着手前のキャンセル無料</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div class="hc-proof" aria-label="受付情報">
+    <div class="hc-container hc-proof__grid">
+      <div class="hc-proof__item"><strong>9:00〜19:00</strong><span>電話受付・年中無休</span></div>
+      <div class="hc-proof__item"><strong>見積もり無料</strong><span>現地確認も無料</span></div>
+      <div class="hc-proof__item"><strong>現金・銀行振込</strong><span>お支払い方法</span></div>
+    </div>
+  </div>
+
+  <!-- 2. 共感・問題提起 -->
+  <section class="hc-section">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Your concerns</p>
+      <h2 class="hc-title">こんなお掃除の悩みは<br><strong>ありませんか？</strong></h2>
+      <!-- 画像枠01：水回り・室内清掃のイメージ。自社施工写真が理想。 -->
+      <div class="hc-image-slot hc-image-slot--wide" data-image-slot="concerns" role="img" aria-label="水回りまたは室内清掃の画像を入れる予定">
+        <div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>水回り・室内清掃の画像</strong><small>推奨：横長／施工中または清掃後の室内</small></div>
+      </div>
+      <div class="hc-card-grid">
+        <article class="hc-card"><div class="hc-card__icon">01</div><h3>水回りの汚れが落ちない</h3><p>浴室の黒カビや水垢、キッチンの油汚れなど、日常の掃除では手に負えない。</p></article>
+        <article class="hc-card"><div class="hc-card__icon">02</div><h3>掃除の時間が取れない</h3><p>仕事や家事が続き、気になる場所が後回しになっている。</p></article>
+        <article class="hc-card"><div class="hc-card__icon">03</div><h3>誰が来るか、料金も不安</h3><p>初めて業者を家に入れるため、担当者や追加料金の条件を先に知りたい。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 解決方法提示 -->
+  <section class="hc-section hc-section--tint">
+    <div class="hc-container">
+      <p class="hc-eyebrow">How we help</p>
+      <h2 class="hc-title">必要な清掃を、<strong>確認してから</strong>ご案内します</h2>
+      <p class="hc-lead">最初から家全体を依頼する必要はありません。気になる場所、汚れや設備の状態を確認し、対応できる範囲と金額をご説明します。</p>
+      <div class="hc-step-grid">
+        <article class="hc-step"><span class="hc-step__no">STEP 01</span><h3>希望箇所を伺う</h3><p>電話またはフォームで、気になる場所と希望時期をお知らせください。</p></article>
+        <article class="hc-step"><span class="hc-step__no">STEP 02</span><h3>状態と範囲を確認</h3><p>素材の劣化や変色など、清掃で戻せない可能性も事前にお伝えします。</p></article>
+        <article class="hc-step"><span class="hc-step__no">STEP 03</span><h3>金額を確定して作業</h3><p>内容と金額に納得いただいてから日程を決め、清掃を実施します。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ベネフィット -->
+  <section class="hc-section">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Benefits</p>
+      <h2 class="hc-title">掃除の<strong>時間と負担</strong>を減らす</h2>
+      <div class="hc-card-grid">
+        <article class="hc-card"><div class="hc-card__icon">時</div><h3>時間をほかのことへ</h3><p>自分では手を付けにくい場所を任せ、掃除に使っていた時間を減らせます。</p></article>
+        <article class="hc-card"><div class="hc-card__icon">軽</div><h3>身体的な負担を軽く</h3><p>高い所や力の要る掃除など、負担になっている場所から相談できます。</p></article>
+        <article class="hc-card"><div class="hc-card__icon">明</div><h3>範囲と料金を明確に</h3><p>どこまで作業するか、いくらかかるかを確認してから依頼を決められます。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 自分ごと -->
+  <section class="hc-section hc-section--cream">
+    <div class="hc-narrow">
+      <p class="hc-eyebrow">For you</p>
+      <h2 class="hc-title">こんな方にご相談いただけます</h2>
+      <ul class="hc-checks">
+        <li>仕事や家事で、まとまった掃除の時間を取りにくい方</li>
+        <li>水回りや高い所の掃除が身体的な負担になっている方</li>
+        <li>来客や生活の節目を前に、気になる場所を整えたい方</li>
+        <li>ハウスクリーニングを初めて利用する方</li>
+        <li>家全体ではなく、気になる1箇所から相談したい方</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. 自己紹介・プロフィール -->
+  <section class="hc-section">
+    <div class="hc-container">
+      <div class="hc-profile">
+        <!-- 画像枠02：代表本人の顔が分かる作業着写真。 -->
+        <div class="hc-image-slot hc-image-slot--profile" data-image-slot="profile" role="img" aria-label="代表者の写真を入れる予定">
+          <div class="hc-image-slot__inner"><span class="hc-image-slot__icon">👤</span><strong>代表写真</strong><small>推奨：正方形／作業着・明るい表情</small></div>
+        </div>
+        <div>
+          <p class="hc-profile__role">ぐるり屋本舗 代表</p>
+          <h2>樋口 勝己</h2>
+          <p>清掃現場で、浴室・キッチン・トイレ・窓・室内などの作業に携わってきました。対応できない作業や、無理に進めると設備を傷める可能性がある作業は、事前にご説明します。</p>
+          <p><strong>基本は代表の樋口が訪問・施工します。</strong>現場が広い場合や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. メッセージ -->
+  <section class="hc-section hc-section--tint">
+    <div class="hc-narrow">
+      <p class="hc-eyebrow">Message</p>
+      <h2 class="hc-title">分からないことを残したまま、<br>作業を始めません</h2>
+      <div class="hc-message">
+        <p>初めて清掃業者へ依頼するときは、「どこまで頼めるのか」「料金が後から変わらないか」「家の中へ誰が来るのか」など、分からないことが多いと思います。</p>
+        <p>まずは気になる場所を伺い、できることと難しいことを分けてご説明します。依頼するかどうかは、内容を確認してからご判断ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. お客様の声 -->
+  <section class="hc-section">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Customer voices</p>
+      <h2 class="hc-title">お客様からいただいた声</h2>
+      <!-- 画像枠03・04：同一現場の施工前後。実案件の許可取得済み写真だけを使用。 -->
+      <div class="hc-ba-wrap">
+        <h3 class="hc-visual-heading">施工前後の写真</h3>
+        <div class="hc-ba-grid">
+          <div class="hc-image-slot" data-image-slot="before" role="img" aria-label="施工前の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">BEFORE</span><strong>施工前の写真</strong><small>推奨：横位置／同じ角度で撮影</small></div></div>
+          <div class="hc-image-slot" data-image-slot="after" role="img" aria-label="施工後の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">AFTER</span><strong>施工後の写真</strong><small>推奨：横位置／施工前と同じ角度</small></div></div>
+        </div>
+      </div>
+      <div class="hc-voices">
+        <article class="hc-voice">
+          <!-- 画像枠05：掲載許可済みのお客様アンケート原本。個人情報は伏せる。 -->
+          <div class="hc-image-slot hc-image-slot--voice" data-image-slot="voice-1" role="img" aria-label="お客様アンケート画像1を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📝</span><strong>お客様アンケート画像</strong><small>個人情報を伏せて掲載</small></div></div>
+          <div class="hc-stars" aria-label="総合評価5点中5点">★★★★★</div>
+          <blockquote>「家の水回り（キッチン、お風呂）をお願いし、キレイにしていただきました。ありがとうございました。」</blockquote>
+          <footer>相模原市・30代・会社員／2026年4月</footer>
+        </article>
+        <article class="hc-voice">
+          <!-- 画像枠06：掲載許可済みのお客様アンケート原本。個人情報は伏せる。 -->
+          <div class="hc-image-slot hc-image-slot--voice" data-image-slot="voice-2" role="img" aria-label="お客様アンケート画像2を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📝</span><strong>お客様アンケート画像</strong><small>個人情報を伏せて掲載</small></div></div>
+          <div class="hc-stars" aria-label="総合評価5点中5点">★★★★★</div>
+          <blockquote>「スタッフの対応・感じがよかったです。……又、お願いしたいです。」</blockquote>
+          <footer>横浜市・70代・自営業／2026年2月</footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 商品説明・サービス内容 -->
+  <section class="hc-section hc-section--tint" id="service">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Services</p>
+      <h2 class="hc-title">気になる箇所から選べる<br><strong>清掃メニュー</strong></h2>
+      <p class="hc-lead">表示は税込の開始料金です。汚れ・設備・作業範囲を確認し、作業前に見積もり金額を確定します。</p>
+      <div class="hc-service-grid">
+        <!-- 画像枠07〜13：各サービスの内容が一目で分かる写真。 -->
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="bathroom" role="img" aria-label="浴室クリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>浴室の画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">BATHROOM</span><h3>浴室クリーニング</h3><p>黒カビ・水垢・排水口など、日常では落としにくい汚れを清掃します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="kitchen" role="img" aria-label="キッチンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>キッチンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">KITCHEN</span><h3>キッチンクリーニング</h3><p>キッチン台・シンク・コンロ・魚焼きグリルを清掃します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="range-hood" role="img" aria-label="レンジフード画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>レンジフードの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">RANGE HOOD</span><h3>レンジフード</h3><p>換気扇の油汚れやホコリを清掃します。分解範囲は事前確認します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="toilet" role="img" aria-label="トイレクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>トイレの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">TOILET</span><h3>トイレクリーニング</h3><p>日常の掃除で落としにくい尿石や黒ずみなどを清掃します。</p></div><div class="hc-service__price"><strong>9,900円〜</strong><span>税込</span></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="floor" role="img" aria-label="床・フローリング洗浄画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>床・フローリングの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">FLOOR</span><h3>床・フローリング洗浄</h3><p>くすみや汚れを洗浄します。面積・作業範囲・状態を確認して見積もります。ワックスは含みません。</p></div><div class="hc-service__price"><strong>10,000円〜</strong><span>税込</span></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="air-conditioner" role="img" aria-label="エアコンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>エアコンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">AIR CONDITIONER</span><h3>エアコンクリーニング</h3><p>内部のカビやホコリを洗浄します。機種・状態を確認して対応可否と作業内容をご案内します。</p></div><div class="hc-service__price"><strong>12,000円〜</strong><span>税込</span></div></article>
+        <article class="hc-service hc-service--wide"><div class="hc-image-slot hc-image-slot--service" data-image-slot="other" role="img" aria-label="窓・サッシ・網戸またはまるごと清掃画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>窓・まるごと清掃の画像</strong><small>推奨：横長</small></div></div><div class="hc-service__top"><div><span class="hc-service__label">OTHER</span><h3>窓・サッシ・網戸／まるごと清掃</h3></div><p>その他の気になる箇所、引越し後・退去前のお家のクリーニングもご相談ください。内容を確認して個別に見積もります。</p></div></article>
+      </div>
+
+      <h3 class="hc-title" style="font-size:1.45rem; margin-top:54px;">ご相談から完了まで</h3>
+      <div class="hc-flow">
+        <div class="hc-flow__item"><strong>ご相談</strong><span>希望箇所と希望時期を連絡</span></div>
+        <div class="hc-flow__item"><strong>確認・見積もり</strong><span>状態、範囲、金額を確認</span></div>
+        <div class="hc-flow__item"><strong>清掃</strong><span>作業前確認後に実施</span></div>
+        <div class="hc-flow__item"><strong>仕上がり確認</strong><span>確認後にお支払い</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 特徴・選ばれる理由 -->
+  <section class="hc-section">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Our policy</p>
+      <h2 class="hc-title">依頼前の不安を減らす<br><strong>4つの約束</strong></h2>
+      <div class="hc-card-grid">
+        <article class="hc-card"><div class="hc-card__icon">先</div><h3>範囲を先に確認</h3><p>どこを掃除し、どこが対象外になるかを作業前に分けます。</p></article>
+        <article class="hc-card"><div class="hc-card__icon">説</div><h3>リスクを先に説明</h3><p>劣化した部品や素材など、設備を傷める可能性がある場合は先に説明します。</p></article>
+        <article class="hc-card"><div class="hc-card__icon">確</div><h3>作業前後を確認</h3><p>実施する場所と作業後の状態を一緒に確認します。</p></article>
+      </div>
+      <div class="hc-message" style="margin-top:18px;"><p><strong>基本は代表本人が訪問します。</strong>広い現場や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div>
+    </div>
+  </section>
+
+  <!-- 11. FAQ -->
+  <section class="hc-section hc-section--cream" id="faq">
+    <div class="hc-narrow">
+      <p class="hc-eyebrow">FAQ</p>
+      <h2 class="hc-title">よくあるご質問</h2>
+      <div class="hc-faq">
+        <details><summary>相談や見積もりだけでも大丈夫ですか？</summary><div class="hc-faq__answer"><p>はい。見積もり・現地確認は無料です。内容と金額を確認してからご判断ください。</p></div></details>
+        <details><summary>表示された金額から変わることはありますか？</summary><div class="hc-faq__answer"><p>現地確認後に作業内容と金額を確定します。お客様から作業範囲の追加・変更がない限り、確定した見積もりから追加料金はいただきません。</p></div></details>
+        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>基本は、ぐるり屋本舗代表の樋口が訪問・施工します。現場が広い場合や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div></details>
+        <details><summary>駐車場がない場合はどうなりますか？</summary><div class="hc-faq__answer"><p>作業場所に駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p></div></details>
+        <details><summary>汚れはすべて落ちますか？</summary><div class="hc-faq__answer"><p>素材の劣化、変色、染み込みなど、清掃では元に戻せない場合があります。事前確認で分かる範囲は作業前にお伝えします。</p></div></details>
+        <details><summary>見積もり後に断ることはできますか？</summary><div class="hc-faq__answer"><p>はい。見積もり後でも、作業着手前のキャンセルは無料です。</p></div></details>
+        <details><summary>支払い方法は何がありますか？</summary><div class="hc-faq__answer"><p>現金または銀行振込でお支払いいただけます。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. 金額 -->
+  <section class="hc-section" id="price">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Price</p>
+      <h2 class="hc-title">料金一覧</h2>
+      <div class="hc-price-wrap">
+        <table class="hc-price-table">
+          <thead><tr><th>メニュー</th><th>税込料金</th><th>基本内容・確認事項</th></tr></thead>
+          <tbody>
+            <tr><td>浴室</td><td>19,800円〜</td><td>黒カビ・水垢・排水口等</td></tr>
+            <tr><td>キッチン</td><td>19,800円〜</td><td>キッチン台・シンク・コンロ・魚焼きグリル</td></tr>
+            <tr><td>レンジフード</td><td>19,800円〜</td><td>油汚れ・ホコリ。分解範囲は事前確認</td></tr>
+            <tr><td>トイレ</td><td>9,900円〜</td><td>尿石・黒ずみ等</td></tr>
+            <tr><td>床・フローリング</td><td>10,000円〜</td><td>面積・作業範囲・状態を確認。ワックスなし</td></tr>
+            <tr><td>エアコン</td><td>12,000円〜</td><td>機種・状態を確認して対応可否と作業内容を案内</td></tr>
+            <tr><td>浴室＋トイレ</td><td>27,000円〜</td><td>2箇所パック</td></tr>
+            <tr><td>浴室＋キッチン＋レンジフード</td><td>55,000円〜</td><td>3箇所パック</td></tr>
+            <tr><td>窓・まるごと・退去前後</td><td>事前見積もり</td><td>内容と範囲を確認してご案内</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hc-price-attention">「〜」の料金は、汚れ・設備・作業範囲により変わります。現地確認後に金額を確定し、作業範囲の追加・変更がない限り、確定後の追加料金はありません。</p>
+      <p class="hc-note">駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p>
+      <div class="hc-actions" style="justify-content:center; margin-top:26px;">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="price">料金と作業範囲を電話で相談</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">フォームから相談</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. 特典・後押し：実施内容が未確定のため公開版では表示しない -->
+
+  <!-- 14. 申し込み -->
+  <section class="hc-cta" id="contact">
+    <div class="hc-container">
+      <h2>まずは、気になる場所をお聞かせください</h2>
+      <p>見積もり・現地確認は無料です。作業内容と金額を見てから依頼するか決められます。</p>
+      <div class="hc-actions">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="application">電話で相談する<br><small>9:00〜19:00・年中無休</small></a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">フォームで相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. 支払い・キャンセル・特商法 -->
+  <section class="hc-section hc-section--tint">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Information</p>
+      <h2 class="hc-title">お支払い・キャンセル</h2>
+      <div class="hc-legal">
+        <article class="hc-legal__card"><h3>お支払い</h3><ul><li>現金</li><li>銀行振込</li></ul></article>
+        <article class="hc-legal__card"><h3>キャンセル</h3><ul><li>見積もり後・作業着手前は無料</li><li>変更がある場合は、分かり次第ご連絡ください</li></ul></article>
+      </div>
+      <div class="hc-legal__links">
+        <a href="<?php echo esc_url(home_url('/tokusho/')); ?>">特定商取引法に基づく表記</a>
+        <a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a>
+        <a href="<?php echo esc_url($hc_contact_url); ?>">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16. 最後に・想い -->
+  <section class="hc-section">
+    <div class="hc-narrow">
+      <p class="hc-eyebrow">Finally</p>
+      <h2 class="hc-title">「この程度で頼んでよいのか」と<br>迷っている方へ</h2>
+      <div class="hc-message">
+        <p>まずは場所と状態を伺い、対応できる作業と難しい作業を分けてお伝えします。</p>
+        <p>作業内容と金額を確認し、納得できた場合にご依頼ください。気になる1箇所からご相談いただけます。</p>
+      </div>
+      <div class="hc-actions" style="justify-content:center; margin-top:26px;">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="final">090-2162-6510へ電話する</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">フォームを開く</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="hc-footer">
+  <div class="hc-container hc-footer__top">
+    <div><strong>ぐるり屋本舗</strong><p>代表：樋口勝己</p></div>
+    <div><strong><a href="tel:09021626510" data-cta-location="footer">090-2162-6510</a></strong><p>受付 9:00〜19:00・年中無休</p></div>
+  </div>
+</footer>
+
+<nav class="hc-sticky" aria-label="お問い合わせ">
+  <div class="hc-sticky__inner">
+    <div class="hc-sticky__brand">
+      <span>相模原市のハウスクリーニング</span>
+      <strong>ぐるり屋本舗</strong>
+    </div>
+    <div class="hc-sticky__tags" aria-label="受付・対応条件">
+      <span>基本は代表訪問</span>
+      <span>年中無休</span>
+      <span>事前に料金確認</span>
+      <span>見積もり無料</span>
+    </div>
+    <a class="hc-sticky__tel" href="tel:09021626510" data-cta-location="sticky"><strong><span class="hc-sticky__tel-desktop">📞 090-2162-6510</span><span class="hc-sticky__tel-mobile">📞 電話で相談</span></strong><small>9:00〜19:00</small></a>
+    <a class="hc-sticky__form" href="<?php echo esc_url($hc_contact_url); ?>"><strong>フォーム受付</strong><small>見積もり無料</small></a>
+  </div>
+</nav>
+
+<script>
+(function() {
+  window.dataLayer = window.dataLayer || [];
+
+  document.addEventListener('click', function(event) {
+    var target = event.target;
+    if (!target.closest && target.parentElement) target = target.parentElement;
+    if (!target.closest) return;
+
+    var phoneLink = target.closest('a[href^="tel:"]');
+    if (!phoneLink) return;
+
+    window.dataLayer.push({
+      event: 'phone_click',
+      site_name: 'gururiyahonpo',
+      service_name: 'housecleaning_sagamihara',
+      page_path: window.location.pathname,
+      link_location: phoneLink.getAttribute('data-cta-location') || 'unknown'
+    });
+  }, true);
+})();
+</script>
+
+<?php wp_footer(); ?>
+</body>
+</html>
