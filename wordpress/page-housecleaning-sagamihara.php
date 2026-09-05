@@ -180,7 +180,10 @@ $hc_contact_url = add_query_arg(
       letter-spacing: .02em;
       margin-bottom: 10px;
     }
-    .hc-hero h1 > span { display: block; font-size: 1.14em; }
+    .hc-hero h1 > span { display: block; }
+    .hc-hero__city { font-size: .55em; }
+    .hc-hero__service { font-size: 1.1em; }
+    .hc-hero__actions { width: 100%; max-width: 720px; margin: 0 auto; }
     .hc-hero__copy {
       max-width: 650px;
       margin: 24px 0 26px;
@@ -818,17 +821,8 @@ $hc_contact_url = add_query_arg(
     </div>
     <div class="hc-container hc-hero__grid">
       <div>
-        <div class="hc-tags" aria-label="サービスの特徴">
-          <span class="hc-tag">✅ 見積もり・現地確認無料</span>
-          <span class="hc-tag">✅ 料金は事前に確認</span>
-          <span class="hc-tag">✅ 9:00〜19:00・年中無休</span>
-        </div>
-        <h1><em>気になる汚れを、1箇所から。</em><span>相模原市の<br>ハウスクリーニング</span></h1>
+        <h1><em>気になる汚れを、1箇所から。</em><span class="hc-hero__city">相模原市の</span><span class="hc-hero__service">ハウスクリーニング</span></h1>
         <p class="hc-hero__copy">水回りやお部屋の気になる汚れをご相談ください。<br>作業内容と金額を確認してからご依頼いただけます。</p>
-        <div class="hc-actions">
-          <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で家をきれいにする</a>
-          <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
-        </div>
       </div>
       <aside class="hc-hero__panel" aria-label="依頼前の確認事項">
         <h2>作業を始める前に、内容と金額を確認します</h2>
@@ -839,6 +833,10 @@ $hc_contact_url = add_query_arg(
           <li>見積もり後・作業着手前のキャンセル無料</li>
         </ul>
       </aside>
+      <div class="hc-actions hc-hero__actions">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で家をきれいにする</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
+      </div>
     </div>
   </section>
 
