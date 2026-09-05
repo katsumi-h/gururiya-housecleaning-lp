@@ -181,7 +181,7 @@ $hc_contact_url = add_query_arg(
       margin-bottom: 10px;
     }
     .hc-hero h1 > span { display: block; }
-    .hc-hero__city { font-size: .55em; }
+    .hc-hero__city { font-size: .65em; }
     .hc-hero__service { font-size: 1.1em; }
     .hc-hero__actions { width: 100%; max-width: 720px; margin: 0 auto; }
     .hc-hero__copy {
@@ -821,7 +821,7 @@ $hc_contact_url = add_query_arg(
     </div>
     <div class="hc-container hc-hero__grid">
       <div>
-        <h1><em>気になる汚れを、1箇所から。</em><span class="hc-hero__city">相模原市の</span><span class="hc-hero__service">ハウスクリーニング</span></h1>
+        <h1><em>気になる1箇所から相談できる</em><span class="hc-hero__city">相模原市の</span><span class="hc-hero__service">ハウスクリーニング</span></h1>
         <p class="hc-hero__copy">水回りやお部屋の気になる汚れをご相談ください。<br>作業内容と金額を確認してからご依頼いただけます。</p>
       </div>
       <aside class="hc-hero__panel" aria-label="依頼前の確認事項">
@@ -839,14 +839,6 @@ $hc_contact_url = add_query_arg(
       </div>
     </div>
   </section>
-
-  <div class="hc-proof" aria-label="受付情報">
-    <div class="hc-container hc-proof__grid">
-      <div class="hc-proof__item"><strong>9:00〜19:00</strong><span>電話受付・年中無休</span></div>
-      <div class="hc-proof__item"><strong>見積もり無料</strong><span>現地確認も無料</span></div>
-      <div class="hc-proof__item"><strong>現金・銀行振込</strong><span>お支払い方法</span></div>
-    </div>
-  </div>
 
   <!-- 2. 共感・問題提起 -->
   <section class="hc-section">
