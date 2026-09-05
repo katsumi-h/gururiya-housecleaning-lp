@@ -212,6 +212,10 @@ $hc_contact_url = add_query_arg(
       background: #fff;
       color: var(--hc-blue-dark);
     }
+    .hc-button--primary,
+    .hc-button--primary:visited,
+    .hc-button--secondary,
+    .hc-button--secondary:visited { color: #fff !important; }
     .hc-button small { display: block; font-size: .7rem; font-weight: 600; opacity: .92; }
     .hc-hero__panel {
       position: relative;
@@ -375,25 +379,12 @@ $hc_contact_url = add_query_arg(
     .hc-service--wide { grid-column: span 3; min-height: auto; }
     .hc-service--wide .hc-service__top { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; }
 
-    .hc-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: flow; }
-    .hc-flow__item {
-      position: relative;
-      padding: 22px 16px;
-      border: 1px solid var(--hc-line);
-      border-radius: 15px;
-      background: #fff;
-      text-align: center;
-      counter-increment: flow;
-    }
-    .hc-flow__item::before {
-      content: counter(flow, decimal-leading-zero);
-      display: block;
-      color: var(--hc-orange);
-      font-size: .75rem;
-      font-weight: 900;
-    }
-    .hc-flow__item strong { display: block; margin: 5px 0 4px; }
-    .hc-flow__item span { color: var(--hc-muted); font-size: .78rem; }
+    .hc-flow { display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--hc-line); counter-reset: none; }
+    .hc-flow__item { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr); align-items: center; gap: 38px; padding: 34px 22px; border: 0; border-bottom: 2px solid var(--hc-line); border-radius: 0; background: #fff; text-align: left; }
+    .hc-flow__item::before { content: none; }
+    .hc-flow__item h3 { margin: 0 0 12px; color: var(--hc-navy); font-size: clamp(1.3rem, 2.2vw, 1.85rem); line-height: 1.45; }
+    .hc-flow__item p { margin: 0; color: var(--hc-muted); font-size: 1rem; line-height: 1.8; }
+    .hc-flow__image { min-height: 180px; aspect-ratio: 16 / 10; }
 
     .hc-price-wrap { overflow-x: auto; border: 1px solid var(--hc-line); border-radius: 18px; background: #fff; }
     .hc-price-table { width: 100%; min-width: 680px; border-collapse: collapse; }
@@ -541,9 +532,9 @@ $hc_contact_url = add_query_arg(
       line-height: 1.25;
       text-align: center;
     }
-    .hc-sticky__tel { flex: 1 1 300px; margin-left: auto; background: var(--hc-orange); }
+    .hc-sticky__tel { flex: 1 1 0; min-width: 0; margin-left: auto; background: var(--hc-orange); }
     .hc-sticky__tel strong { font-size: clamp(1rem, 2vw, 1.28rem); font-weight: 600; letter-spacing: .02em; }
-    .hc-sticky__form { flex: 0 0 150px; background: var(--hc-form); }
+    .hc-sticky__form { flex: 1 1 0; min-width: 0; background: var(--hc-form); }
     .hc-sticky__form strong { font-weight: 600; }
     .hc-sticky__tel-mobile { display: none; }
     .hc-sticky small { display: block; margin-top: 2px; font-size: .62rem; font-weight: 400; opacity: .9; }
@@ -553,7 +544,8 @@ $hc_contact_url = add_query_arg(
       .hc-hero__panel { max-width: 620px; }
       .hc-card-grid, .hc-step-grid, .hc-service-grid { grid-template-columns: repeat(2, 1fr); }
       .hc-service--wide { grid-column: span 2; }
-      .hc-flow { grid-template-columns: repeat(2, 1fr); }
+      .hc-flow { grid-template-columns: 1fr; }
+      .hc-flow__item { grid-template-columns: minmax(0, 1fr) minmax(220px, .8fr); gap: 24px; }
       .hc-sticky__brand, .hc-sticky__tags { display: none; }
       .hc-sticky__tel { margin-left: 0; }
     }
@@ -572,7 +564,9 @@ $hc_contact_url = add_query_arg(
       .hc-service--wide .hc-service__top { grid-template-columns: 1fr; gap: 4px; }
       .hc-profile { grid-template-columns: 1fr; padding: 28px; }
       .hc-profile__mark { width: 130px; }
-      .hc-flow { grid-template-columns: 1fr 1fr; }
+      .hc-flow { grid-template-columns: 1fr; }
+      .hc-flow__item { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+      .hc-flow__image { min-height: 0; }
       .hc-footer__top { flex-direction: column; }
       .hc-sticky__inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
       .hc-sticky__tel, .hc-sticky__form { min-width: 0; padding-inline: 8px; }
@@ -694,6 +688,7 @@ $hc_contact_url = add_query_arg(
       text-shadow: 0 1px 5px rgba(0, 0, 0, .35);
     }
     .hc-actions { justify-content: center; }
+    .hc-hero .hc-actions > .hc-button { flex: 1 1 0; }
     .hc-button { border-radius: 10px; }
     .hc-button--primary {
       background: var(--hc-orange);
@@ -741,7 +736,7 @@ $hc_contact_url = add_query_arg(
     .hc-service { border-radius: 12px; }
     .hc-service__label { color: var(--hc-orange); }
     .hc-service__price { background: #fff3f3; color: var(--hc-orange-dark); }
-    .hc-flow__item { border-radius: 10px; }
+    .hc-flow__item { border-radius: 0; }
     .hc-flow__item::before { color: var(--hc-orange); }
     .hc-price-wrap { border-radius: 10px; }
     .hc-price-table th { background: var(--hc-blue); }
@@ -825,14 +820,14 @@ $hc_contact_url = add_query_arg(
         <p class="hc-hero__area">相模原市で訪問対応</p>
         <div class="hc-tags" aria-label="サービスの特徴">
           <span class="hc-tag">✅ 見積もり・現地確認無料</span>
-          <span class="hc-tag">✅ 基本は代表本人が訪問</span>
+          <span class="hc-tag">✅ 料金は事前に確認</span>
           <span class="hc-tag">✅ 9:00〜19:00・年中無休</span>
         </div>
         <h1><em>気になる1箇所から相談できる</em>相模原市の<br>ハウスクリーニング</h1>
         <p class="hc-hero__copy">落としにくい水回りや、お部屋の気になる汚れをご相談ください。清掃箇所と状態を確認し、作業内容と金額をお伝えしてから日程を決めます。</p>
         <div class="hc-actions">
-          <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で作業内容を相談する<br><small>090-2162-6510／9:00〜19:00</small></a>
-          <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ フォームで希望箇所を送る</a>
+          <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で家をきれいにする</a>
+          <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
         </div>
       </div>
       <aside class="hc-hero__panel" aria-label="依頼前の確認事項">
@@ -903,9 +898,9 @@ $hc_contact_url = add_query_arg(
       </div>
       <div class="hc-profile" style="margin-top:30px;">
         <div class="hc-image-slot hc-image-slot--profile" data-image-slot="profile" role="img" aria-label="代表者の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">👤</span><strong>代表写真</strong><small>推奨：正方形／作業着・明るい表情</small></div></div>
-        <div><p class="hc-profile__role">ぐるり屋本舗 代表</p><h2>樋口 勝己</h2><p>清掃現場で、浴室・キッチン・トイレ・窓・室内などの作業に携わってきました。</p><p><strong>基本は代表の樋口が訪問・施工します。</strong>現場が広い場合や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div>
+        <div><p class="hc-profile__role">ぐるり屋本舗 代表</p><h2>樋口 勝己</h2><p>清掃現場で、浴室・キッチン・トイレ・窓・室内などの作業に携わってきました。</p><p>現場が広い場合や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div>
       </div>
-      <div class="hc-actions" style="justify-content:center; margin-top:30px;"><a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="reason">📞 まずは電話で相談する</a><a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ フォームで相談する</a></div>
+      <div class="hc-actions" style="justify-content:center; margin-top:30px;"><a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="reason">📞 電話で家をきれいにする</a><a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a></div>
     </div>
   </section>
 
@@ -978,7 +973,7 @@ $hc_contact_url = add_query_arg(
         <article class="hc-card"><div class="hc-card__icon">説</div><h3>リスクを先に説明</h3><p>劣化した部品や素材など、設備を傷める可能性がある場合は先に説明します。</p></article>
         <article class="hc-card"><div class="hc-card__icon">確</div><h3>作業前後を確認</h3><p>実施する場所と作業後の状態を一緒に確認します。</p></article>
       </div>
-      <div class="hc-message" style="margin-top:18px;"><p><strong>基本は代表本人が訪問します。</strong>広い現場や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div>
+      <div class="hc-message" style="margin-top:18px;"><p>広い現場や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div>
     </div>
   </section>
 
@@ -990,7 +985,7 @@ $hc_contact_url = add_query_arg(
       <div class="hc-faq">
         <details><summary>相談や見積もりだけでも大丈夫ですか？</summary><div class="hc-faq__answer"><p>はい。見積もり・現地確認は無料です。内容と金額を確認してからご判断ください。</p></div></details>
         <details><summary>表示された金額から変わることはありますか？</summary><div class="hc-faq__answer"><p>現地確認後に作業内容と金額を確定します。お客様から作業範囲の追加・変更がない限り、確定した見積もりから追加料金はいただきません。</p></div></details>
-        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>基本は、ぐるり屋本舗代表の樋口が訪問・施工します。現場が広い場合や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div></details>
+        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>作業内容・日程を確認し、対応できる担当者をご案内します。</p></div></details>
         <details><summary>駐車場がない場合はどうなりますか？</summary><div class="hc-faq__answer"><p>作業場所に駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p></div></details>
         <details><summary>汚れはすべて落ちますか？</summary><div class="hc-faq__answer"><p>素材の劣化、変色、染み込みなど、清掃では元に戻せない場合があります。事前確認で分かる範囲は作業前にお伝えします。</p></div></details>
         <details><summary>見積もり後に断ることはできますか？</summary><div class="hc-faq__answer"><p>はい。見積もり後でも、作業着手前のキャンセルは無料です。</p></div></details>
@@ -1023,8 +1018,8 @@ $hc_contact_url = add_query_arg(
       <p class="hc-price-attention">「〜」の料金は、汚れ・設備・作業範囲により変わります。現地確認後に金額を確定し、作業範囲の追加・変更がない限り、確定後の追加料金はありません。</p>
       <p class="hc-note">駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p>
       <div class="hc-actions" style="justify-content:center; margin-top:26px;">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="price">料金と作業範囲を電話で相談</a>
-        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">フォームから相談</a>
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="price">📞 電話で家をきれいにする</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
       </div>
     </div>
   </section>
@@ -1044,10 +1039,10 @@ $hc_contact_url = add_query_arg(
       <p class="hc-eyebrow">Flow</p>
       <h2 class="hc-title">ご依頼の流れ</h2>
       <div class="hc-flow">
-        <div class="hc-flow__item"><strong>STEP 1：ご相談</strong><span>希望箇所と希望時期をお知らせください</span></div>
-        <div class="hc-flow__item"><strong>STEP 2：確認・見積もり</strong><span>状態、範囲、金額を確認します</span></div>
-        <div class="hc-flow__item"><strong>STEP 3：清掃</strong><span>内容と金額に納得後、日程を決めて実施します</span></div>
-        <div class="hc-flow__item"><strong>STEP 4：仕上がり確認</strong><span>作業後に一緒に状態を確認します</span></div>
+        <article class="hc-flow__item"><div><h3>📞 STEP 1：お問い合わせ</h3><p>電話またはフォームからご連絡ください。<br>気になる箇所と希望時期をお知らせください。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-contact" role="img" aria-label="お問い合わせのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📞</span><strong>お問い合わせの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>📝 STEP 2：無料お見積もり</h3><p>作業内容・料金・時間の目安をご説明します。<br>納得いただいた場合のみ日程を決めます。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-quote" role="img" aria-label="お見積もりのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📝</span><strong>お見積もりの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>🧹 STEP 3：クリーニング作業</h3><p>内容と金額に納得いただいてから作業します。<br>作業前後で仕上がりをご確認いただきます。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-cleaning" role="img" aria-label="クリーニング作業のイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>🧹</span><strong>クリーニング作業の画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>💴 STEP 4：完了・お支払い</h3><p>仕上がりをご確認いただいたあと、お支払いとなります。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-payment" role="img" aria-label="お支払いのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>💴</span><strong>お支払いの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
       </div>
     </div>
   </section>
@@ -1060,7 +1055,7 @@ $hc_contact_url = add_query_arg(
       <div class="hc-faq">
         <details><summary>相談や見積もりだけでも大丈夫ですか？</summary><div class="hc-faq__answer"><p>はい。見積もり・現地確認は無料です。内容と金額を確認してからご判断ください。</p></div></details>
         <details><summary>表示された金額から変わることはありますか？</summary><div class="hc-faq__answer"><p>現地確認後に作業内容と金額を確定します。お客様から作業範囲の追加・変更がない限り、確定した見積もりから追加料金はいただきません。</p></div></details>
-        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>基本は、ぐるり屋本舗代表の樋口が訪問・施工します。現場が広い場合や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div></details>
+        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>作業内容・日程を確認し、対応できる担当者をご案内します。</p></div></details>
         <details><summary>駐車場がない場合はどうなりますか？</summary><div class="hc-faq__answer"><p>駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p></div></details>
         <details><summary>汚れはすべて落ちますか？</summary><div class="hc-faq__answer"><p>素材の劣化、変色、染み込みなど、清掃では元に戻せない場合があります。事前確認で分かる範囲は作業前にお伝えします。</p></div></details>
       </div>
@@ -1075,8 +1070,8 @@ $hc_contact_url = add_query_arg(
       <h2>まずは、気になる場所をお聞かせください</h2>
       <p>見積もり・現地確認は無料です。作業内容と金額を見てから依頼するか決められます。</p>
       <div class="hc-actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="application">電話で相談する<br><small>9:00〜19:00・年中無休</small></a>
-        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">フォームで相談する</a>
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="application">📞 電話で家をきれいにする</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
       </div>
     </div>
   </section>
@@ -1120,8 +1115,8 @@ $hc_contact_url = add_query_arg(
       <h2>まずは、気になる場所をお聞かせください</h2>
       <p>見積もり・現地確認は無料です。作業内容と金額を見てから依頼するか決められます。</p>
       <div class="hc-actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="application">電話で相談する<br><small>9:00〜19:00・年中無休</small></a>
-        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">フォームで相談する</a>
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="application">📞 電話で家をきれいにする</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
       </div>
     </div>
   </section>
@@ -1141,7 +1136,7 @@ $hc_contact_url = add_query_arg(
       <strong>ぐるり屋本舗</strong>
     </div>
     <div class="hc-sticky__tags" aria-label="受付・対応条件">
-      <span>基本は代表訪問</span>
+      <span>現地確認無料</span>
       <span>年中無休</span>
       <span>事前に料金確認</span>
       <span>見積もり無料</span>
