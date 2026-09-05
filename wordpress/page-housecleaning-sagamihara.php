@@ -817,14 +817,14 @@ $hc_contact_url = add_query_arg(
     </div>
     <div class="hc-container hc-hero__grid">
       <div>
-        <p class="hc-hero__area">相模原市で訪問対応</p>
+        <p class="hc-hero__area">相模原市のハウスクリーニング</p>
         <div class="hc-tags" aria-label="サービスの特徴">
           <span class="hc-tag">✅ 見積もり・現地確認無料</span>
           <span class="hc-tag">✅ 料金は事前に確認</span>
           <span class="hc-tag">✅ 9:00〜19:00・年中無休</span>
         </div>
-        <h1><em>気になる1箇所から相談できる</em>相模原市の<br>ハウスクリーニング</h1>
-        <p class="hc-hero__copy">落としにくい水回りや、お部屋の気になる汚れをご相談ください。清掃箇所と状態を確認し、作業内容と金額をお伝えしてから日程を決めます。</p>
+        <h1><em>気になる汚れを、1箇所から。</em>相模原市の<br>ハウスクリーニング</h1>
+        <p class="hc-hero__copy">水回りやお部屋の気になる汚れを、作業内容と金額を確認してからご依頼いただけます。</p>
         <div class="hc-actions">
           <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で家をきれいにする</a>
           <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
