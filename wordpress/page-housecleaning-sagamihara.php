@@ -180,6 +180,10 @@ $hc_contact_url = add_query_arg(
       letter-spacing: .02em;
       margin-bottom: 10px;
     }
+    .hc-hero h1 > span { display: block; }
+    .hc-hero__city { font-size: .65em; }
+    .hc-hero__service { font-size: 1.1em; }
+    .hc-hero__actions { width: 100%; max-width: 620px; margin: 0 auto; }
     .hc-hero__copy {
       max-width: 650px;
       margin: 24px 0 26px;
@@ -487,7 +491,7 @@ $hc_contact_url = add_query_arg(
     }
     .hc-sticky__brand {
       display: flex;
-      flex: 0 0 auto;
+      flex: 0 0 225px;
       flex-direction: column;
       justify-content: center;
       padding-right: 16px;
@@ -500,7 +504,7 @@ $hc_contact_url = add_query_arg(
     .hc-sticky__brand strong { font-size: 1.08rem; font-weight: 600; }
     .hc-sticky__tags {
       display: grid;
-      flex: 0 0 auto;
+      flex: 0 0 280px;
       grid-template-columns: 1fr 1fr;
       align-content: center;
       gap: 4px;
@@ -532,9 +536,9 @@ $hc_contact_url = add_query_arg(
       line-height: 1.25;
       text-align: center;
     }
-    .hc-sticky__tel { flex: 1 1 0; min-width: 0; margin-left: auto; background: var(--hc-orange); }
-    .hc-sticky__tel strong { font-size: clamp(1rem, 2vw, 1.28rem); font-weight: 600; letter-spacing: .02em; }
-    .hc-sticky__form { flex: 1 1 0; min-width: 0; background: var(--hc-form); }
+    .hc-sticky__tel { flex: 0 1 280px; min-width: 0; margin-left: auto; background: var(--hc-orange); }
+    .hc-sticky__tel strong { font-size: clamp(1rem, 1.6vw, 1.12rem); font-weight: 600; letter-spacing: .02em; }
+    .hc-sticky__form { flex: 0 1 280px; min-width: 0; background: var(--hc-form); }
     .hc-sticky__form strong { font-weight: 600; }
     .hc-sticky__tel-mobile { display: none; }
     .hc-sticky small { display: block; margin-top: 2px; font-size: .62rem; font-weight: 400; opacity: .9; }
@@ -644,7 +648,7 @@ $hc_contact_url = add_query_arg(
     .hc-hero__bg span { position: absolute; inset: 0; background: rgba(10, 40, 64, .35); }
     .hc-hero__grid {
       grid-template-columns: 1fr;
-      gap: 22px;
+      gap: 0;
       text-align: center;
     }
     .hc-hero__area {
@@ -678,7 +682,7 @@ $hc_contact_url = add_query_arg(
       letter-spacing: 0;
     }
     .hc-hero__copy {
-      max-width: 720px;
+      max-width: 620px;
       margin: 18px auto 22px;
       color: rgba(255, 255, 255, .95);
       font-size: 1rem;
@@ -702,7 +706,7 @@ $hc_contact_url = add_query_arg(
     }
     .hc-hero__panel {
       width: 100%;
-      max-width: 720px;
+      max-width: 580px;
       margin: 0 auto;
       padding: 22px 24px;
       border: 0;
@@ -817,21 +821,11 @@ $hc_contact_url = add_query_arg(
     </div>
     <div class="hc-container hc-hero__grid">
       <div>
-        <p class="hc-hero__area">相模原市で訪問対応</p>
-        <div class="hc-tags" aria-label="サービスの特徴">
-          <span class="hc-tag">✅ 見積もり・現地確認無料</span>
-          <span class="hc-tag">✅ 料金は事前に確認</span>
-          <span class="hc-tag">✅ 9:00〜19:00・年中無休</span>
-        </div>
-        <h1><em>気になる1箇所から相談できる</em>相模原市の<br>ハウスクリーニング</h1>
-        <p class="hc-hero__copy">落としにくい水回りや、お部屋の気になる汚れをご相談ください。清掃箇所と状態を確認し、作業内容と金額をお伝えしてから日程を決めます。</p>
-        <div class="hc-actions">
-          <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で家をきれいにする</a>
-          <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
-        </div>
+        <h1><em>気になる1箇所から相談できる</em><span class="hc-hero__city">相模原市の</span><span class="hc-hero__service">ハウスクリーニング</span></h1>
+        <p class="hc-hero__copy">水回りやお部屋の気になる汚れをご相談ください。<br>作業内容と金額を確認してからご依頼いただけます。</p>
       </div>
       <aside class="hc-hero__panel" aria-label="依頼前の確認事項">
-        <h2>作業を始める前に、内容と金額を確認します</h2>
+        <h2>作業を始める前に内容と金額を確認します</h2>
         <ul class="hc-checks">
           <li>気になる場所と汚れの状態を確認</li>
           <li>できる作業と難しい作業をご説明</li>
@@ -839,16 +833,12 @@ $hc_contact_url = add_query_arg(
           <li>見積もり後・作業着手前のキャンセル無料</li>
         </ul>
       </aside>
+      <div class="hc-actions hc-hero__actions">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で家をきれいにする</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
+      </div>
     </div>
   </section>
-
-  <div class="hc-proof" aria-label="受付情報">
-    <div class="hc-container hc-proof__grid">
-      <div class="hc-proof__item"><strong>9:00〜19:00</strong><span>電話受付・年中無休</span></div>
-      <div class="hc-proof__item"><strong>見積もり無料</strong><span>現地確認も無料</span></div>
-      <div class="hc-proof__item"><strong>現金・銀行振込</strong><span>お支払い方法</span></div>
-    </div>
-  </div>
 
   <!-- 2. 共感・問題提起 -->
   <section class="hc-section">
