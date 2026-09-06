@@ -706,7 +706,7 @@ $hc_contact_url = add_query_arg(
     }
     .hc-hero__panel {
       width: 100%;
-      max-width: 720px;
+      max-width: 580px;
       margin: 0 auto;
       padding: 22px 24px;
       border: 0;
@@ -825,7 +825,7 @@ $hc_contact_url = add_query_arg(
         <p class="hc-hero__copy">水回りやお部屋の気になる汚れをご相談ください。<br>作業内容と金額を確認してからご依頼いただけます。</p>
       </div>
       <aside class="hc-hero__panel" aria-label="依頼前の確認事項">
-        <h2>作業を始める前に、内容と金額を確認します</h2>
+        <h2>作業を始める前に内容と金額を確認します</h2>
         <ul class="hc-checks">
           <li>気になる場所と汚れの状態を確認</li>
           <li>できる作業と難しい作業をご説明</li>
