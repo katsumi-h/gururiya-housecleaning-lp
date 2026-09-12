@@ -173,7 +173,7 @@
     }
     .hc-hero h1 > span { display: block; }
     .hc-hero__city { font-size: .65em; }
-    .hc-hero__service { font-size: 1.1em; }
+    .hc-hero__service { font-size: 70px; }
     .hc-hero__actions { width: 100%; max-width: 620px; margin: 0 auto; }
     .hc-hero__copy {
       max-width: 650px;
@@ -287,6 +287,105 @@
     }
     .hc-card h3 { margin: 0 0 9px; font-size: 1.08rem; line-height: 1.5; }
     .hc-card p { margin: 0; color: var(--hc-muted); font-size: .91rem; }
+    .hc-concerns-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr);
+      align-items: start;
+      gap: 36px;
+    }
+    .hc-concerns-intro {
+      padding: 34px 30px;
+      border-radius: 12px;
+      background: var(--hc-blue);
+      color: #fff;
+      box-shadow: var(--hc-shadow);
+    }
+    .hc-concerns-intro strong { display: block; margin-bottom: 14px; font-size: 1.35rem; line-height: 1.55; }
+    .hc-concerns-intro p { margin: 0; color: rgba(255,255,255,.88); }
+    .hc-concern-list { margin: 0; padding: 0; border-top: 1px solid var(--hc-line); list-style: none; }
+    .hc-concern-list li { position: relative; padding: 18px 0 18px 48px; border-bottom: 1px solid var(--hc-line); }
+    .hc-concern-list li::before {
+      content: "✓";
+      position: absolute;
+      top: 22px;
+      left: 4px;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fff3f3;
+      color: var(--hc-orange);
+      font-weight: 900;
+    }
+    .hc-concern-list h3 { margin: 0 0 5px; font-size: 1.02rem; line-height: 1.55; }
+    .hc-concern-list p { margin: 0; color: var(--hc-muted); font-size: .88rem; }
+
+    .hc-process { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .hc-process::before {
+      content: "";
+      position: absolute;
+      top: 31px;
+      right: 16%;
+      left: 16%;
+      height: 4px;
+      background: rgba(2, 136, 209, .22);
+    }
+    .hc-process article { position: relative; z-index: 1; text-align: center; }
+    .hc-process__no {
+      display: grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 20px;
+      border: 6px solid #f7f8fa;
+      border-radius: 50%;
+      background: var(--hc-orange);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+    .hc-process h3 { margin: 0 0 8px; font-size: 1.08rem; line-height: 1.5; }
+    .hc-process p { margin: 0; color: var(--hc-muted); font-size: .88rem; }
+
+    .hc-benefit-panel {
+      overflow: hidden;
+      padding: 40px 34px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--hc-blue), var(--hc-blue-dark));
+      color: #fff;
+      box-shadow: var(--hc-shadow);
+    }
+    .hc-benefit-panel > p { max-width: 650px; margin: 0 auto 28px; color: rgba(255,255,255,.9); text-align: center; }
+    .hc-benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .hc-benefit-grid > div { padding: 0 22px; text-align: center; }
+    .hc-benefit-grid > div + div { border-left: 1px solid rgba(255,255,255,.32); }
+    .hc-benefit-grid strong { display: block; margin-bottom: 8px; color: #fff; font-size: 1.08rem; line-height: 1.5; }
+    .hc-benefit-grid span { display: block; color: rgba(255,255,255,.82); font-size: .86rem; line-height: 1.7; }
+
+    .hc-recommend-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 38px;
+      margin: 0;
+      padding: 14px 32px;
+      border-top: 4px solid var(--hc-orange);
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: var(--hc-shadow);
+      list-style: none;
+    }
+    .hc-recommend-list li { position: relative; padding: 20px 0 20px 40px; border-bottom: 1px solid var(--hc-line); font-weight: 700; }
+    .hc-recommend-list li:nth-last-child(-n + 2) { border-bottom: 0; }
+    .hc-recommend-list li::before {
+      content: "✓";
+      position: absolute;
+      top: 20px;
+      left: 0;
+      color: var(--hc-orange);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
     .hc-step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .hc-step {
       position: relative;
@@ -537,6 +636,7 @@
     @media (max-width: 860px) {
       .hc-hero__grid { grid-template-columns: 1fr; gap: 32px; }
       .hc-hero__panel { max-width: 620px; }
+      .hc-concerns-layout { grid-template-columns: 1fr; }
       .hc-card-grid, .hc-step-grid, .hc-service-grid { grid-template-columns: repeat(2, 1fr); }
       .hc-service--wide { grid-column: span 2; }
       .hc-flow { grid-template-columns: 1fr; }
@@ -552,6 +652,16 @@
       .hc-hero__copy { font-size: .96rem; }
       .hc-actions { flex-direction: column; }
       .hc-button { width: 100%; }
+      .hc-process { grid-template-columns: 1fr; gap: 26px; }
+      .hc-process::before { top: 28px; right: auto; bottom: 28px; left: 27px; width: 3px; height: auto; }
+      .hc-process article { display: grid; grid-template-columns: 56px 1fr; column-gap: 16px; text-align: left; }
+      .hc-process__no { grid-row: 1 / 3; width: 56px; height: 56px; margin: 0; border-width: 5px; }
+      .hc-benefit-panel { padding: 32px 22px; }
+      .hc-benefit-grid { grid-template-columns: 1fr; }
+      .hc-benefit-grid > div { padding: 18px 0; }
+      .hc-benefit-grid > div + div { border-top: 1px solid rgba(255,255,255,.32); border-left: 0; }
+      .hc-recommend-list { grid-template-columns: 1fr; padding-inline: 22px; }
+      .hc-recommend-list li:nth-last-child(2) { border-bottom: 1px solid var(--hc-line); }
       .hc-proof__grid { grid-template-columns: 1fr; }
       .hc-proof__item + .hc-proof__item { border-top: 1px solid var(--hc-line); border-left: 0; }
       .hc-card-grid, .hc-step-grid, .hc-service-grid, .hc-voices, .hc-legal { grid-template-columns: 1fr; }
@@ -773,8 +883,17 @@
     .hc-ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .hc-ba-grid .hc-image-slot { aspect-ratio: 4 / 3; }
 
+    /* ファーストビューの文字色・サイズ（本人指定） */
+    .hc-hero h1 { color: #222; text-shadow: none; }
+    .hc-hero h1 em { color: #222; }
+    .hc-hero__city { color: #222; font-size: 40px; }
+    .hc-hero__service { color: #e53935; }
+    .hc-hero__copy { color: #222; text-shadow: none; }
+
     @media (max-width: 640px) {
       .hc-section { padding: 46px 0; }
+      .hc-hero__city { font-size: 1.625rem; }
+      .hc-hero__service { font-size: 2rem; }
       .hc-brand { flex-direction: column; align-items: flex-start; gap: 0; }
       .hc-brand__sub { display: block; font-size: .62rem; }
       .hc-brand__main { font-size: 1rem; }
@@ -787,6 +906,369 @@
       .hc-image-slot--wide { aspect-ratio: 4 / 3; }
       .hc-ba-grid { grid-template-columns: 1fr; }
       .hc-image-slot--profile { width: 150px; }
+    }
+
+    /* 参考LPの流れに合わせ、見出し・チェックリスト・写真付き説明を使い分ける。 */
+    .hc-hero__actions { margin-top: 28px; }
+    .hc-hero .hc-hero__panel { max-width: 580px; }
+    .hc-concerns-layout { display: block; max-width: 760px; margin-inline: auto; }
+    .hc-service-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+    .hc-service-grid .hc-service {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      grid-column: auto;
+      align-items: center;
+      gap: 30px;
+      padding: 28px 0;
+      border: 0;
+      border-bottom: 1px solid var(--hc-line);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+    .hc-service-grid .hc-service:first-child { padding-top: 0; }
+    .hc-service-grid .hc-service:last-child { padding-bottom: 0; border-bottom: 0; }
+    .hc-service-grid .hc-service__top { display: block; padding: 0; }
+    .hc-service-grid .hc-service__top h3 { margin: 0 0 12px; font-size: 1.2rem; }
+    .hc-service-grid .hc-service__top p { margin: 0; line-height: 1.85; }
+    .hc-service-grid .hc-service__label { display: none; }
+    .hc-service-grid .hc-image-slot--service { border: 2px dashed #aebbc2; border-radius: 10px; }
+    .hc-reason-list { margin: 0; padding: 0; list-style: none; counter-reset: reasons; }
+    .hc-reason-list li { display: grid; grid-template-columns: 60px 1fr; gap: 22px; padding: 28px 0; border-bottom: 1px solid var(--hc-line); counter-increment: reasons; }
+    .hc-reason-list li:first-child { padding-top: 0; }
+    .hc-reason-list li:last-child { padding-bottom: 0; border-bottom: 0; }
+    .hc-reason-list li::before { content: counter(reasons, decimal-leading-zero); color: var(--hc-blue); font-size: 2rem; font-weight: 900; line-height: 1.3; }
+    .hc-reason-list h3 { margin: 0 0 9px; font-size: 1.16rem; line-height: 1.5; }
+    .hc-reason-list p { margin: 0; color: var(--hc-muted); }
+    .hc-cta .hc-actions { max-width: 680px; margin-inline: auto; }
+    .hc-cta .hc-actions > .hc-button { flex: 1 1 0; }
+    .hc-ba-wrap { margin-bottom: 0; }
+    @media (max-width: 640px) {
+      .hc-hero__actions { margin-top: 28px; }
+      .hc-service-grid .hc-service { grid-template-columns: 1fr; gap: 18px; }
+      .hc-service-grid .hc-service__top h3 { font-size: 1.1rem; }
+      .hc-reason-list li { grid-template-columns: 40px 1fr; gap: 12px; }
+      .hc-reason-list li::before { font-size: 1.65rem; }
+      .hc-reason-list h3 { font-size: 1.04rem; }
+    }
+
+    /* ===== FV改修（2026-09-10）：全面写真＋左へのフェード／確認事項はFV直下の3カードへ ===== */
+    .hc-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 96px 0 104px;
+      background: #fff;
+    }
+    .hc-hero::after { display: none; }
+    .hc-hero__bg { position: absolute; inset: 0; z-index: 0; }
+    .hc-hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 78% center; }
+    .hc-hero__bg span { display: none; }
+    .hc-hero__bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right,
+        #fff 0%,
+        #fff 42%,
+        rgba(255,255,255,.96) 56%,
+        rgba(255,255,255,.70) 72%,
+        rgba(255,255,255,.25) 88%,
+        rgba(255,255,255,0) 97%);
+    }
+    .hc-hero__grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, .82fr);
+      align-items: center;
+      gap: 0;
+    }
+    .hc-hero__grid > div:first-child { max-width: 620px; }
+    .hc-hero__actions { width: auto; max-width: 620px; margin: 30px 0 0; }
+    .hc-hero .hc-actions { justify-content: flex-start; }
+
+    /* FV直下の3カード（遠州総美型） */
+    .hc-promises { position: relative; z-index: 2; margin-top: -52px; padding: 0; }
+    .hc-promises__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .hc-promise {
+      background: #fff;
+      border: 1px solid var(--hc-line);
+      border-radius: 14px;
+      padding: 22px 22px 24px;
+      box-shadow: 0 10px 26px rgba(22, 107, 131, .10);
+    }
+    .hc-promise h2 { margin: 0 0 8px; font-size: 1.02rem; color: var(--hc-blue-dark); }
+    .hc-promise p { margin: 0; font-size: .9rem; line-height: 1.75; color: #444; }
+
+    @media (max-width: 900px) {
+      .hc-hero { padding: 56px 0 64px; }
+      .hc-hero__grid { grid-template-columns: 1fr; }
+      .hc-hero__space { display: none; }
+      .hc-hero__bg img { object-position: 68% center; }
+      .hc-hero__bg::after {
+        background: linear-gradient(to bottom,
+          rgba(255,255,255,.95) 0%,
+          rgba(255,255,255,.90) 50%,
+          rgba(255,255,255,.84) 100%);
+      }
+      .hc-promises { margin-top: 0; padding: 26px 0 0; }
+      .hc-promises__grid { grid-template-columns: 1fr; gap: 12px; }
+    }
+    .hc-hero__service { font-size: clamp(2.1rem, 4.4vw, 70px); white-space: nowrap; }
+    .hc-hero__city { font-size: clamp(1.5rem, 2.6vw, 40px); }
+
+    /* FVを左揃えに（2026-09-12 本人指定）。旧デザインの中央寄せ指定を打ち消す。 */
+    .hc-hero__grid { text-align: left; }
+    .hc-hero h1 { text-align: left; }
+    .hc-hero__area { justify-content: flex-start; }
+    .hc-hero__copy { margin-inline: 0; }
+    .hc-hero .hc-tags { justify-content: flex-start; }
+    .hc-hero .hc-actions { justify-content: flex-start; }
+
+    @media (max-width: 900px) {
+      .hc-hero__grid { text-align: left; }
+      .hc-hero h1 { text-align: left; }
+    }
+
+    /* FV左揃えの取りこぼし（2026-09-12）。中央寄せの原因は text-align なので、子要素まで明示的に指定する。 */
+    .hc-hero__grid,
+    .hc-hero__grid > div,
+    .hc-hero h1,
+    .hc-hero__copy,
+    .hc-hero__area { text-align: left; }
+    .hc-hero__copy { margin-left: 0; margin-right: 0; max-width: 560px; }
+    .hc-hero__grid > div:first-child { margin-left: 0; }
+
+    /* ===== FV調整（2026-09-12 本人指定）：文章の開始位置を左へ／3カードをFV内へ ===== */
+    /* FVのコンテナは「割合」で決める。固定pxだと幅が狭いとき画面端まで伸びてしまう。
+       遠州総美の実測比率（左端11.5%・幅77%）に合わせる。 */
+    .hc-hero .hc-container { width: min(77%, 1560px); margin-inline: auto; }
+
+    .hc-hero { padding: 52px 0 40px; }
+    .hc-hero__grid { align-items: start; }
+    .hc-hero__grid > div:first-child { max-width: 680px; }
+    .hc-hero__actions { margin: 26px 0 0; }
+
+    /* 3カードはFVの中。写真の上に乗る */
+    .hc-promises__grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+      grid-column: 1 / -1;
+    }
+    .hc-promise {
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(2px);
+      border: 1px solid var(--hc-line);
+      border-radius: 14px;
+      padding: 18px 20px 20px;
+      box-shadow: 0 10px 26px rgba(22, 107, 131, .10);
+    }
+    .hc-promise h2 { margin: 0 0 6px; font-size: .98rem; color: var(--hc-blue-dark); }
+    .hc-promise p { margin: 0; font-size: .86rem; line-height: 1.7; color: #444; }
+
+    @media (max-width: 900px) {
+      .hc-hero .hc-container { width: min(100% - 32px, 780px); }
+      .hc-hero { padding: 40px 0 36px; }
+      .hc-promises__grid { grid-template-columns: 1fr; gap: 10px; margin-top: 28px; }
+    }
+
+    /* 構図を遠州総美に寄せる（2026-09-12）。余白を広げ、CTAは「塗り＋白抜き」の対比にする。 */
+    .hc-hero { padding: 52px 0 40px; }
+    .hc-hero h1 { margin-bottom: 26px; line-height: 1.3; }
+    .hc-hero__copy { margin-top: 0; line-height: 1.9; }
+    .hc-hero__actions { margin-top: 28px; gap: 14px; }
+    .hc-promises__grid { margin-top: 38px; gap: 18px; }
+    .hc-promise { padding: 20px 22px 22px; }
+
+    /* 2つ目のCTAを白抜きにして、1つ目との主従をはっきりさせる */
+    .hc-hero .hc-actions .hc-button--secondary,
+    .hc-hero .hc-actions a.hc-button--secondary {
+      background: rgba(255,255,255,.94) !important;
+      color: #0277bd !important;
+      border: 2px solid #0277bd !important;
+      box-shadow: none;
+    }
+
+    @media (max-width: 900px) {
+      .hc-hero .hc-container { width: min(100% - 32px, 780px); }
+      .hc-hero { padding: 40px 0 36px; }
+      .hc-promises__grid { margin-top: 30px; gap: 10px; }
+    }
+
+    /* ===== LPの型1「ゆとり型」を適用（2026-09-12）=====
+       採寸元：遠州総美 enshu-sobi.jp／採寸日2026-09-12／ビューポート1280px
+       型の定義：メインフォルダ/01_ナレッジ/LP制作/01_型1_ゆとり型.md
+       ⚠️ ここの数値を勝手に変えない。変えたくなったら型2を作る。 */
+
+    /* 1. コンテナ：左8.6% / 幅81.6%（必ず割合で。固定pxだと狭い画面で端まで伸びる） */
+    .hc-hero .hc-container { width: min(81.6%, 1560px); margin-inline: auto; }
+
+    /* 2. テキスト列は画面の約32.6%だけ。細くして写真を主役にする */
+    .hc-hero__grid { display: block; }
+    .hc-hero__grid > div:first-child { max-width: 32.6%; min-width: 300px; }
+    .hc-hero__space { display: none; }
+
+    /* 3. 文字サイズと行間 */
+    .hc-hero__city   { font-size: clamp(1.4rem, 2.1vw, 27px); line-height: 1.42; }
+    .hc-hero__service{ font-size: clamp(2rem, 4vw, 51.2px);   line-height: 1.42; }
+    .hc-hero h1      { line-height: 1.42; margin: 0; }
+    .hc-hero h1 em   { font-size: clamp(1rem, 1.65vw, 21.1px); line-height: 1.6; }
+    .hc-hero__copy   { font-size: 14.7px; line-height: 1.85; max-width: 29.9%; min-width: 300px; }
+
+    /* 4. 縦の余白：要素間は13〜17pxで詰める。CTA→カードだけ74pxで大きく空ける */
+    .hc-hero h1 em      { display: block; margin-bottom: 13px; }
+    .hc-hero__service   { margin-bottom: 0; }
+    .hc-hero__copy      { margin: 13px 0 0; }
+    .hc-hero__actions   { margin: 17px 0 0; gap: 12px; }
+    .hc-promises__grid  { margin-top: 74px; gap: 12px; }
+
+    /* 5. CTA：高さ67px・角丸999px・主従で幅を変える */
+    .hc-hero .hc-actions .hc-button {
+      min-height: 67px; padding: 16.8px 22.4px;
+      border-radius: 999px; font-size: 16.3px; line-height: 1.8;
+      flex: 0 0 auto; white-space: nowrap;
+    }
+    .hc-hero .hc-actions .hc-button--primary   { min-width: 353px; }
+    .hc-hero .hc-actions .hc-button--secondary { min-width: 208px; }
+
+    /* 6. カード：340×102px・角丸14px・白・すき間12px */
+    .hc-promises__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .hc-promise {
+      min-height: 102px; padding: 17.6px 18.4px;
+      border-radius: 14px; border: 0;
+      background: #fff;
+      box-shadow: rgba(23,48,58,.35) 0 6px 24px -10px;
+    }
+    .hc-promise h2 { margin: 0 0 4px; font-size: 15px; line-height: 1.5; }
+    .hc-promise p  { margin: 0; font-size: 13px; line-height: 1.7; }
+
+    .hc-hero { padding: 56px 0 44px; }
+
+    @media (max-width: 900px) {
+      .hc-hero .hc-container { width: min(100% - 32px, 780px); }
+      .hc-hero__grid > div:first-child,
+      .hc-hero__copy { max-width: 100%; min-width: 0; }
+      .hc-hero .hc-actions .hc-button { min-width: 0; width: 100%; white-space: normal; }
+      .hc-promises__grid { grid-template-columns: 1fr; margin-top: 34px; }
+    }
+
+    /* 型1の取りこぼし（2026-09-12）：CTA帯はテキスト列ではなくコンテナ全幅を使う */
+    .hc-hero .hc-hero__actions {
+      max-width: none !important;
+      width: 100%;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+
+    /* 追従フッター：FVのCTAが画面から出るまで隠す（2026-09-12）
+       方式は hashibami-sharoushi-site/script.js の stickyHeader と同じ
+       （基準要素の getBoundingClientRect().bottom を見て is-visible を付け外しする） */
+    .hc-sticky {
+      transform: translateY(110%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform .28s ease, opacity .28s ease, visibility .28s;
+    }
+    .hc-sticky.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    /* 動きを減らす設定の人には、動かさず出し入れだけする */
+    @media (prefers-reduced-motion: reduce) {
+      .hc-sticky { transition: none; }
+    }
+
+    /* カード帯はコンテナの二重掛けを解除して、文章と左端を揃える（2026-09-12）
+       型1の実測どおり、カード3枚＋すき間＝340×3＋12×2＝1044px＝コンテナ全幅81.6% */
+    .hc-hero .hc-promises__grid {
+      width: 100%;
+      max-width: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* ===== 本人指示による修正（2026-09-12・添付画像の赤入れ）===== */
+
+    /* 2) 「神奈川エリア地域密着」を1.4倍（26.88px → 約37.6px） */
+    .hc-hero__city { font-size: clamp(1.96rem, 2.94vw, 37.6px); }
+
+    /* 3) 説明文は1文ずつ1行に収める。長い行に351px必要なので余裕をみて380px */
+    .hc-hero__copy { max-width: 380px; min-width: 0; }
+
+    /* 4) CTAボタンの大きさを統一する
+       ⚠️ 型1は「主353px／従208px・同じ幅で並べない」。ここは本人指示による型1からの逸脱。 */
+    .hc-hero .hc-actions .hc-button--primary,
+    .hc-hero .hc-actions .hc-button--secondary {
+      min-width: 320px;
+      justify-content: center;
+    }
+
+    /* テキスト列の幅（2026-09-12）
+       型1は32.6%（1280pxで337px）だが、見出しを1.4倍にしたら376px必要になり折れた。
+       見出しが1行に収まる幅を確保する。⚠️ 型1からの逸脱。 */
+    .hc-hero__grid > div:first-child { max-width: min(40%, 420px); min-width: 0; }
+    .hc-hero__city { white-space: nowrap; }
+    .hc-hero__copy { max-width: 400px; }
+
+    /* カード帯を赤線（画面の約65%）より左に収める（2026-09-12 本人指示・B案）
+       左端8.6% → 右端65% なので幅は56.4vw。3枚は均等（1fr）なので大きさは自動で揃う。 */
+    .hc-hero .hc-promises__grid {
+      max-width: 56vw;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (max-width: 900px) {
+      .hc-hero .hc-promises__grid { max-width: none; grid-template-columns: 1fr; }
+    }
+
+    /* ===== 赤入れ2回目（2026-09-12）=====
+       ①テキストを上へ寄せる ②見出し・説明文を1.4倍
+       ③CTAはカードのすぐ上（少し隙間） ④カードをFVの下ギリギリまで下げる
+       ⚠️ ④は「余白を詰める」だけ。FVの高さを引き伸ばしたり、カードの大きさを変えたりしない。 */
+
+    /* ① 上へ寄せる ＋ ④ 下ギリギリまで下げる（＝上下の余白を詰める） */
+    .hc-hero { padding: 24px 0 14px; }
+
+    /* ② 1.4倍 */
+    .hc-hero__city    { font-size: clamp(2.1rem, 4.1vw, 52.6px); }
+    .hc-hero__service { font-size: clamp(2.6rem, 5.6vw, 71.7px); }
+    .hc-hero__copy    { font-size: 20.6px; max-width: 560px; }
+
+    /* 文字を大きくしたぶん、折り返さないように列を広げる */
+    .hc-hero__grid > div:first-child { max-width: min(56%, 700px); }
+
+    /* ③ CTAはカードのすぐ上。少しだけ隙間 */
+    .hc-hero__actions { margin-top: 26px; }
+    .hc-hero .hc-promises__grid { margin-top: 18px; }
+
+    @media (max-width: 900px) {
+      .hc-hero { padding: 28px 0 20px; }
+      .hc-hero__city    { font-size: clamp(1.5rem, 6vw, 32px); }
+      .hc-hero__service { font-size: clamp(1.9rem, 8vw, 44px); white-space: normal; }
+      .hc-hero__copy    { font-size: 16px; max-width: none; }
+      .hc-hero__grid > div:first-child { max-width: none; }
+    }
+
+    /* ===== 赤入れ3回目（2026-09-12）===== */
+
+    /* ① 見出しを90%に（52.6→47.3px / 71.7→64.5px） */
+    .hc-hero__city    { font-size: clamp(1.89rem, 3.69vw, 47.3px); }
+    .hc-hero__service { font-size: clamp(2.34rem, 5.04vw, 64.5px); }
+
+    /* ② 説明文の下に足した1行 */
+    .hc-hero__note { display: inline-block; margin-top: 6px; font-weight: 700; }
+
+    /* ③ メールのCTAをフッターの「フォーム受付」と同じ色に */
+    .hc-hero .hc-actions .hc-button--secondary,
+    .hc-hero .hc-actions a.hc-button--secondary {
+      background: var(--hc-form) !important;
+      color: #fff !important;
+      border: 2px solid var(--hc-form) !important;
     }
   </style>
 </head>
@@ -812,21 +1294,27 @@
     </div>
     <div class="hc-container hc-hero__grid">
       <div>
-        <h1><em>気になる1箇所から相談できる</em><span class="hc-hero__city">相模原市の</span><span class="hc-hero__service">ハウスクリーニング</span></h1>
-        <p class="hc-hero__copy">水回りやお部屋の気になる汚れをご相談ください。<br>作業内容と金額を確認してからご依頼いただけます。</p>
+        <h1><span class="hc-hero__city">神奈川エリア地域密着</span><span class="hc-hero__service">ハウスクリーニング</span></h1>
+        <p class="hc-hero__copy">水回りやお部屋の気になる汚れをご相談ください。<br>作業内容と金額を確認してからご依頼いただけます。<br><strong class="hc-hero__note">気になる一箇所からでも大丈夫</strong></p>
       </div>
-      <aside class="hc-hero__panel" aria-label="依頼前の確認事項">
-        <h2>作業を始める前に内容と金額を確認します</h2>
-        <ul class="hc-checks">
-          <li>気になる場所と汚れの状態を確認</li>
-          <li>できる作業と難しい作業をご説明</li>
-          <li>作業範囲が変わらなければ、確定後の追加料金なし</li>
-          <li>見積もり後・作業着手前のキャンセル無料</li>
-        </ul>
-      </aside>
+      <div class="hc-hero__space" aria-hidden="true"></div>
       <div class="hc-actions hc-hero__actions">
         <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で家をきれいにする</a>
         <a class="hc-button hc-button--secondary" href="#contact">✉️ メールで家をきれいにする</a>
+      </div>
+      <div class="hc-container hc-promises__grid" aria-label="ご依頼前のお約束">
+        <div class="hc-promise">
+          <h2>追加料金なし</h2>
+          <p>作業範囲が変わらなければ、確認した金額から追加はしません。</p>
+        </div>
+        <div class="hc-promise">
+          <h2>キャンセル無料</h2>
+          <p>見積もり後・作業着手前のキャンセルは無料です。</p>
+        </div>
+        <div class="hc-promise">
+          <h2>作業前にご説明</h2>
+          <p>気になる場所と汚れの状態を確認し、できる作業と難しい作業をご説明します。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -836,68 +1324,70 @@
     <div class="hc-container">
       <p class="hc-eyebrow">Your concerns</p>
       <h2 class="hc-title">こんなお掃除の悩みは<br><strong>ありませんか？</strong></h2>
-      <!-- 画像枠01：水回り・室内清掃のイメージ。自社施工写真が理想。 -->
-      <div class="hc-image-slot hc-image-slot--wide" data-image-slot="concerns" role="img" aria-label="水回りまたは室内清掃の画像を入れる予定">
-        <div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>水回り・室内清掃の画像</strong><small>推奨：横長／施工中または清掃後の室内</small></div>
-      </div>
-      <div class="hc-card-grid">
-        <article class="hc-card"><div class="hc-card__icon">01</div><h3>水回りの汚れが落ちない</h3><p>浴室の黒カビや水垢、キッチンの油汚れなど、日常の掃除では手に負えない。</p></article>
-        <article class="hc-card"><div class="hc-card__icon">02</div><h3>掃除の時間が取れない</h3><p>仕事や家事が続き、気になる場所が後回しになっている。</p></article>
-        <article class="hc-card"><div class="hc-card__icon">03</div><h3>誰が来るか、料金も不安</h3><p>初めて業者を家に入れるため、担当者や追加料金の条件を先に知りたい。</p></article>
+      <div class="hc-concerns-layout">
+        <ul class="hc-concern-list">
+          <li><h3>何度掃除しても水回りの汚れが気になる</h3><p>浴室の黒カビや水垢、キッチンの油汚れが残り、見るたびに気持ちが重くなる。</p></li>
+          <li><h3>自分では落とし方が分からない</h3><p>洗剤や道具を試しても変わらず、これ以上どう掃除すればよいか迷っている。</p></li>
+          <li><h3>掃除の時間をなかなか取れない</h3><p>仕事や家事が続き、気になる場所を後回しにしたまま時間が過ぎている。</p></li>
+          <li><h3>高い所や力の要る掃除がつらい</h3><p>換気扇や窓、床など、無理な姿勢になる掃除が身体の負担になっている。</p></li>
+          <li><h3>汚れが気になって家で落ち着けない</h3><p>目に入るたびに気になり、家にいても気持ちが休まらない。</p></li>
+          <li><h3>人を呼ぶ前にきれいにしたい</h3><p>来客や生活の節目を前に、見られるのが気になる場所を整えておきたい。</p></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- 3. 解決策・サービス紹介（静岡LPと同じ位置） -->
+  <!-- 解決方法・サービス内容 -->
   <section class="hc-section hc-section--tint" id="service">
     <div class="hc-container">
       <p class="hc-eyebrow">Services</p>
-      <h2 class="hc-title">そんなお悩みを、<strong>気になる場所から</strong>承ります</h2>
-      <p class="hc-lead">最初から家全体を依頼する必要はありません。汚れや設備の状態を確認し、対応できる範囲と金額をご説明します。</p>
+      <h2 class="hc-title">そんなお悩み<br><strong>プロの清掃で解決をお手伝いします</strong></h2>
+      <p class="hc-lead">浴室の黒カビや水垢、キッチンの油汚れ、自分では手が届きにくい場所。汚れと素材の状態に合う方法で清掃し、後回しになっていた場所を整えます。<br><br>困っている1箇所だけでも大丈夫です。必要な作業と料金を作業前に確認し、ご納得いただいてから清掃します。</p>
       <div class="hc-service-grid">
         <!-- 画像枠07〜13：各サービスの内容が一目で分かる写真。 -->
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="bathroom" role="img" aria-label="浴室クリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>浴室の画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">BATHROOM</span><h3>浴室クリーニング</h3><p>黒カビ・水垢・排水口など、日常では落としにくい汚れを清掃します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="kitchen" role="img" aria-label="キッチンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>キッチンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">KITCHEN</span><h3>キッチンクリーニング</h3><p>キッチン台・シンク・コンロ・魚焼きグリルを清掃します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="range-hood" role="img" aria-label="レンジフード画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>レンジフードの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">RANGE HOOD</span><h3>レンジフード</h3><p>換気扇の油汚れやホコリを清掃します。分解範囲は事前確認します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="toilet" role="img" aria-label="トイレクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>トイレの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">TOILET</span><h3>トイレクリーニング</h3><p>日常の掃除で落としにくい尿石や黒ずみなどを清掃します。</p></div><div class="hc-service__price"><strong>9,900円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="floor" role="img" aria-label="床・フローリング洗浄画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>床・フローリングの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">FLOOR</span><h3>床・フローリング洗浄</h3><p>くすみや汚れを洗浄します。面積・作業範囲・状態を確認して見積もります。ワックスは含みません。</p></div><div class="hc-service__price"><strong>10,000円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="air-conditioner" role="img" aria-label="エアコンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>エアコンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">AIR CONDITIONER</span><h3>エアコンクリーニング</h3><p>内部のカビやホコリを洗浄します。機種・状態を確認して対応可否と作業内容をご案内します。</p></div><div class="hc-service__price"><strong>12,000円〜</strong><span>税込</span></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="bathroom" role="img" aria-label="浴室クリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>浴室の画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">BATHROOM</span><h3>浴室クリーニング</h3><p>黒カビ・水垢・排水口など、日常では落としにくい汚れを清掃します。</p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="kitchen" role="img" aria-label="キッチンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>キッチンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">KITCHEN</span><h3>キッチンクリーニング</h3><p>キッチン台・シンク・コンロ・魚焼きグリルを清掃します。</p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="range-hood" role="img" aria-label="レンジフード画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>レンジフードの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">RANGE HOOD</span><h3>レンジフード</h3><p>換気扇の油汚れやホコリを清掃します。分解範囲は事前確認します。</p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="toilet" role="img" aria-label="トイレクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>トイレの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">TOILET</span><h3>トイレクリーニング</h3><p>日常の掃除で落としにくい尿石や黒ずみなどを清掃します。</p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="floor" role="img" aria-label="床・フローリング洗浄画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>床・フローリングの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">FLOOR</span><h3>床・フローリング洗浄</h3><p>くすみや汚れを洗浄します。面積・作業範囲・状態を確認して見積もります。ワックスは含みません。</p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="air-conditioner" role="img" aria-label="エアコンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>エアコンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">AIR CONDITIONER</span><h3>エアコンクリーニング</h3><p>内部のカビやホコリを洗浄します。機種・状態を確認して対応可否と作業内容をご案内します。</p></div></article>
         <article class="hc-service hc-service--wide"><div class="hc-image-slot hc-image-slot--service" data-image-slot="other" role="img" aria-label="窓・サッシ・網戸またはまるごと清掃画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>窓・まるごと清掃の画像</strong><small>推奨：横長</small></div></div><div class="hc-service__top"><div><span class="hc-service__label">OTHER</span><h3>窓・サッシ・網戸／まるごと清掃</h3></div><p>その他の気になる箇所、引越し後・退去前のお家のクリーニングもご相談ください。内容を確認して個別に見積もります。</p></div></article>
       </div>
+
     </div>
   </section>
 
-  <!-- 4. 選ばれる理由 -->
-  <section class="hc-section">
+  <!-- 選ばれる理由 -->
+  <section class="hc-section" id="reasons">
     <div class="hc-container">
-      <p class="hc-eyebrow">Our policy</p>
-      <h2 class="hc-title">依頼前の不安を減らす<br><strong>4つの約束</strong></h2>
-      <div class="hc-card-grid">
-        <article class="hc-card"><div class="hc-card__icon">先</div><h3>範囲を先に確認</h3><p>どこを掃除し、どこが対象外になるかを作業前に分けます。</p></article>
-        <article class="hc-card"><div class="hc-card__icon">説</div><h3>リスクを先に説明</h3><p>劣化した部品や素材など、設備を傷める可能性がある場合は先に説明します。</p></article>
-        <article class="hc-card"><div class="hc-card__icon">確</div><h3>作業前後を確認</h3><p>実施する場所と作業後の状態を一緒に確認します。</p></article>
-      </div>
-      <div class="hc-profile" style="margin-top:30px;">
-        <div class="hc-image-slot hc-image-slot--profile" data-image-slot="profile" role="img" aria-label="代表者の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">👤</span><strong>代表写真</strong><small>推奨：正方形／作業着・明るい表情</small></div></div>
-        <div><p class="hc-profile__role">ぐるり屋本舗 代表</p><h2>樋口 勝己</h2><p>清掃現場で、浴室・キッチン・トイレ・窓・室内などの作業に携わってきました。</p><p>現場が広い場合や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div>
-      </div>
-      <div class="hc-actions" style="justify-content:center; margin-top:30px;"><a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="reason">📞 電話で家をきれいにする</a><a class="hc-button hc-button--secondary" href="#contact">✉️ メールで家をきれいにする</a></div>
+      <h2 class="hc-title">当店が選ばれる<br><strong>5つの理由</strong></h2>
+      <ol class="hc-reason-list">
+        <li><div><h3>作業前に内容と料金を確定</h3><p>汚れ・設備・作業範囲を確認して見積もりをご案内します。作業範囲の追加・変更がない限り、追加料金はいただきません。</p></div></li>
+        <li><div><h3>困っている1箇所だけでも対応</h3><p>「浴室だけ」「キッチンだけ」でもご相談ください。家全体を頼む必要はなく、今いちばん気になっている場所からご依頼いただけます。</p></div></li>
+        <li><div><h3>汚れと素材の状態に合わせて清掃</h3><p>黒カビ・水垢・油汚れなど、日常の掃除では落としにくい汚れを確認し、箇所ごとに作業内容を決めて清掃します。</p></div></li>
+        <li><div><h3>できることと難しいことを先に説明</h3><p>素材の劣化や変色など、清掃で元に戻せない可能性もお伝えします。無理に作業を進めず、仕上がりの見通しを一緒に確認します。</p></div></li>
+        <li><div><h3>相談・見積もりだけでも大丈夫</h3><p>見積もり・現地確認は無料です。内容と金額を見てからご判断ください。見積もり後でも、作業着手前のキャンセルは無料です。</p></div></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 5. お客様の声・施工前後 -->
+  <!-- 相談窓口 -->
+  <section class="hc-cta" id="contact">
+    <div class="hc-container">
+      <h2>気になる場所からご相談ください</h2>
+      <p>見積もり・現地確認は無料です。内容と金額を確認してからご依頼いただけます。</p>
+      <div class="hc-actions">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="after-reasons">📞 電話で家をきれいにする</a>
+        <a class="hc-button hc-button--secondary" href="#contact">✉️ メールで家をきれいにする</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- お客様の声 -->
   <section class="hc-section">
     <div class="hc-container">
       <p class="hc-eyebrow">Customer voices</p>
       <h2 class="hc-title">お客様からいただいた声</h2>
-      <!-- 画像枠03・04：同一現場の施工前後。実案件の許可取得済み写真だけを使用。 -->
-      <div class="hc-ba-wrap">
-        <h3 class="hc-visual-heading">施工前後の写真</h3>
-        <div class="hc-ba-grid">
-          <div class="hc-image-slot" data-image-slot="before" role="img" aria-label="施工前の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">BEFORE</span><strong>施工前の写真</strong><small>推奨：横位置／同じ角度で撮影</small></div></div>
-          <div class="hc-image-slot" data-image-slot="after" role="img" aria-label="施工後の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">AFTER</span><strong>施工後の写真</strong><small>推奨：横位置／施工前と同じ角度</small></div></div>
-        </div>
-      </div>
       <div class="hc-voices">
         <article class="hc-voice">
           <!-- 画像枠05：掲載許可済みのお客様アンケート原本。個人情報は伏せる。 -->
@@ -917,65 +1407,21 @@
     </div>
   </section>
 
-  <!-- 旧構成のメニュー。履歴として残すが画面には表示しない。 -->
-  <section class="hc-section hc-section--tint" id="service-details-archive" hidden>
+  <!-- 施工事例 -->
+  <section class="hc-section hc-section--tint" id="examples">
     <div class="hc-container">
-      <p class="hc-eyebrow">Services</p>
-      <h2 class="hc-title">気になる箇所から選べる<br><strong>清掃メニュー</strong></h2>
-      <p class="hc-lead">表示は税込の開始料金です。汚れ・設備・作業範囲を確認し、作業前に見積もり金額を確定します。</p>
-      <div class="hc-service-grid">
-        <!-- 画像枠07〜13：各サービスの内容が一目で分かる写真。 -->
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="bathroom" role="img" aria-label="浴室クリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>浴室の画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">BATHROOM</span><h3>浴室クリーニング</h3><p>黒カビ・水垢・排水口など、日常では落としにくい汚れを清掃します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="kitchen" role="img" aria-label="キッチンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>キッチンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">KITCHEN</span><h3>キッチンクリーニング</h3><p>キッチン台・シンク・コンロ・魚焼きグリルを清掃します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="range-hood" role="img" aria-label="レンジフード画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>レンジフードの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">RANGE HOOD</span><h3>レンジフード</h3><p>換気扇の油汚れやホコリを清掃します。分解範囲は事前確認します。</p></div><div class="hc-service__price"><strong>19,800円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="toilet" role="img" aria-label="トイレクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>トイレの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">TOILET</span><h3>トイレクリーニング</h3><p>日常の掃除で落としにくい尿石や黒ずみなどを清掃します。</p></div><div class="hc-service__price"><strong>9,900円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="floor" role="img" aria-label="床・フローリング洗浄画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>床・フローリングの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">FLOOR</span><h3>床・フローリング洗浄</h3><p>くすみや汚れを洗浄します。面積・作業範囲・状態を確認して見積もります。ワックスは含みません。</p></div><div class="hc-service__price"><strong>10,000円〜</strong><span>税込</span></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="air-conditioner" role="img" aria-label="エアコンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>エアコンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">AIR CONDITIONER</span><h3>エアコンクリーニング</h3><p>内部のカビやホコリを洗浄します。機種・状態を確認して対応可否と作業内容をご案内します。</p></div><div class="hc-service__price"><strong>12,000円〜</strong><span>税込</span></div></article>
-        <article class="hc-service hc-service--wide"><div class="hc-image-slot hc-image-slot--service" data-image-slot="other" role="img" aria-label="窓・サッシ・網戸またはまるごと清掃画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>窓・まるごと清掃の画像</strong><small>推奨：横長</small></div></div><div class="hc-service__top"><div><span class="hc-service__label">OTHER</span><h3>窓・サッシ・網戸／まるごと清掃</h3></div><p>その他の気になる箇所、引越し後・退去前のお家のクリーニングもご相談ください。内容を確認して個別に見積もります。</p></div></article>
-      </div>
-
-      <h3 class="hc-title" style="font-size:1.45rem; margin-top:54px;">ご相談から完了まで</h3>
-      <div class="hc-flow">
-        <div class="hc-flow__item"><strong>ご相談</strong><span>希望箇所と希望時期を連絡</span></div>
-        <div class="hc-flow__item"><strong>確認・見積もり</strong><span>状態、範囲、金額を確認</span></div>
-        <div class="hc-flow__item"><strong>清掃</strong><span>作業前確認後に実施</span></div>
-        <div class="hc-flow__item"><strong>仕上がり確認</strong><span>確認後にお支払い</span></div>
+      <h2 class="hc-title">施工事例・ビフォーアフター</h2>
+      <!-- 画像枠03・04：同一現場の施工前後。実案件の許可取得済み写真だけを使用。 -->
+      <div class="hc-ba-wrap">
+        <div class="hc-ba-grid">
+          <div class="hc-image-slot" data-image-slot="before" role="img" aria-label="施工前の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">BEFORE</span><strong>施工前の写真</strong><small>推奨：横位置／同じ角度で撮影</small></div></div>
+          <div class="hc-image-slot" data-image-slot="after" role="img" aria-label="施工後の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">AFTER</span><strong>施工後の写真</strong><small>推奨：横位置／施工前と同じ角度</small></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 旧構成の選ばれる理由。履歴として残すが画面には表示しない。 -->
-  <section class="hc-section" hidden>
-    <div class="hc-container">
-      <p class="hc-eyebrow">Our policy</p>
-      <h2 class="hc-title">依頼前の不安を減らす<br><strong>4つの約束</strong></h2>
-      <div class="hc-card-grid">
-        <article class="hc-card"><div class="hc-card__icon">先</div><h3>範囲を先に確認</h3><p>どこを掃除し、どこが対象外になるかを作業前に分けます。</p></article>
-        <article class="hc-card"><div class="hc-card__icon">説</div><h3>リスクを先に説明</h3><p>劣化した部品や素材など、設備を傷める可能性がある場合は先に説明します。</p></article>
-        <article class="hc-card"><div class="hc-card__icon">確</div><h3>作業前後を確認</h3><p>実施する場所と作業後の状態を一緒に確認します。</p></article>
-      </div>
-      <div class="hc-message" style="margin-top:18px;"><p>広い現場や作業量が多い場合は、対応できる範囲と日程を確認してから回答します。</p></div>
-    </div>
-  </section>
-
-  <!-- 旧構成のFAQ。静岡LPと同じ順へ移したため画面には表示しない。 -->
-  <section class="hc-section hc-section--cream" id="faq-archive" hidden>
-    <div class="hc-narrow">
-      <p class="hc-eyebrow">FAQ</p>
-      <h2 class="hc-title">よくあるご質問</h2>
-      <div class="hc-faq">
-        <details><summary>相談や見積もりだけでも大丈夫ですか？</summary><div class="hc-faq__answer"><p>はい。見積もり・現地確認は無料です。内容と金額を確認してからご判断ください。</p></div></details>
-        <details><summary>表示された金額から変わることはありますか？</summary><div class="hc-faq__answer"><p>現地確認後に作業内容と金額を確定します。お客様から作業範囲の追加・変更がない限り、確定した見積もりから追加料金はいただきません。</p></div></details>
-        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>作業内容・日程を確認し、対応できる担当者をご案内します。</p></div></details>
-        <details><summary>駐車場がない場合はどうなりますか？</summary><div class="hc-faq__answer"><p>作業場所に駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p></div></details>
-        <details><summary>汚れはすべて落ちますか？</summary><div class="hc-faq__answer"><p>素材の劣化、変色、染み込みなど、清掃では元に戻せない場合があります。事前確認で分かる範囲は作業前にお伝えします。</p></div></details>
-        <details><summary>見積もり後に断ることはできますか？</summary><div class="hc-faq__answer"><p>はい。見積もり後でも、作業着手前のキャンセルは無料です。</p></div></details>
-        <details><summary>支払い方法は何がありますか？</summary><div class="hc-faq__answer"><p>現金または銀行振込でお支払いいただけます。</p></div></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12. 金額 -->
+  <!-- 料金・パックプラン -->
   <section class="hc-section" id="price">
     <div class="hc-container">
       <p class="hc-eyebrow">Price</p>
@@ -998,26 +1444,33 @@
       </div>
       <p class="hc-price-attention">「〜」の料金は、汚れ・設備・作業範囲により変わります。現地確認後に金額を確定し、作業範囲の追加・変更がない限り、確定後の追加料金はありません。</p>
       <p class="hc-note">駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p>
-      <div class="hc-actions" style="justify-content:center; margin-top:26px;">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="price">📞 電話で家をきれいにする</a>
+    </div>
+  </section>
+
+  <!-- 対応エリア -->
+  <section class="hc-section hc-section--tint" id="area">
+    <div class="hc-container">
+      <h2 class="hc-title">相模原市のハウスクリーニング<br><strong>気になる場所へお伺いします</strong></h2>
+      <div class="hc-message"><p>相模原市を中心に、訪問でハウスクリーニングを承ります。対応できる地域や日程は、作業内容を伺ってからご案内します。</p><p>対応地域か迷う場合も、お問い合わせ時にご確認ください。</p></div>
+
+    </div>
+  </section>
+
+  <!-- 相談窓口 -->
+  <section class="hc-cta">
+    <div class="hc-container">
+      <h2>気になる場所からご相談ください</h2>
+      <p>見積もり・現地確認は無料です。内容と金額を確認してからご依頼いただけます。</p>
+      <div class="hc-actions">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="after-area">📞 電話で家をきれいにする</a>
         <a class="hc-button hc-button--secondary" href="#contact">✉️ メールで家をきれいにする</a>
       </div>
     </div>
   </section>
 
-  <!-- 7. 対応エリア -->
-  <section class="hc-section hc-section--tint">
-    <div class="hc-narrow">
-      <p class="hc-eyebrow">Area</p>
-      <h2 class="hc-title">相模原市で訪問対応します</h2>
-      <div class="hc-message"><p>相模原市を中心に、訪問でハウスクリーニングを承ります。対応できる地域や日程は、作業内容を伺ってからご案内します。</p><p>対応地域か迷う場合も、まずはお気軽にお問い合わせください。</p></div>
-    </div>
-  </section>
-
-  <!-- 8. ご依頼の流れ -->
-  <section class="hc-section">
+  <!-- ご依頼の流れ -->
+  <section class="hc-section" id="flow">
     <div class="hc-container">
-      <p class="hc-eyebrow">Flow</p>
       <h2 class="hc-title">ご依頼の流れ</h2>
       <div class="hc-flow">
         <article class="hc-flow__item"><div><h3>📞 STEP 1：お問い合わせ</h3><p>電話またはフォームからご連絡ください。<br>気になる箇所と希望時期をお知らせください。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-contact" role="img" aria-label="お問い合わせのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📞</span><strong>お問い合わせの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
@@ -1028,7 +1481,7 @@
     </div>
   </section>
 
-  <!-- 9. よくある質問 -->
+  <!-- よくあるご質問 -->
   <section class="hc-section hc-section--cream" id="faq">
     <div class="hc-narrow">
       <p class="hc-eyebrow">FAQ</p>
@@ -1036,28 +1489,46 @@
       <div class="hc-faq">
         <details><summary>相談や見積もりだけでも大丈夫ですか？</summary><div class="hc-faq__answer"><p>はい。見積もり・現地確認は無料です。内容と金額を確認してからご判断ください。</p></div></details>
         <details><summary>表示された金額から変わることはありますか？</summary><div class="hc-faq__answer"><p>現地確認後に作業内容と金額を確定します。お客様から作業範囲の追加・変更がない限り、確定した見積もりから追加料金はいただきません。</p></div></details>
-        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>作業内容・日程を確認し、対応できる担当者をご案内します。</p></div></details>
-        <details><summary>駐車場がない場合はどうなりますか？</summary><div class="hc-faq__answer"><p>駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p></div></details>
+        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>作業内容と日程を確認し、対応できる担当者をご案内します。</p></div></details>
+        <details><summary>駐車場がない場合はどうなりますか？</summary><div class="hc-faq__answer"><p>作業場所に駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p></div></details>
         <details><summary>汚れはすべて落ちますか？</summary><div class="hc-faq__answer"><p>素材の劣化、変色、染み込みなど、清掃では元に戻せない場合があります。事前確認で分かる範囲は作業前にお伝えします。</p></div></details>
+        <details><summary>見積もり後に断ることはできますか？</summary><div class="hc-faq__answer"><p>はい。見積もり後でも、作業着手前のキャンセルは無料です。</p></div></details>
+        <details><summary>支払い方法は何がありますか？</summary><div class="hc-faq__answer"><p>現金または銀行振込でお支払いいただけます。</p></div></details>
       </div>
     </div>
   </section>
 
-  <!-- 13. 特典・後押し：実施内容が未確定のため公開版では表示しない -->
-
-  <!-- 旧位置のCTA。静岡LPと同じく「最後に」の後へ移したため画面には表示しない。 -->
-  <section class="hc-cta" id="contact-archive" hidden>
+  <!-- 最後に・想い -->
+  <section class="hc-section">
     <div class="hc-container">
-      <h2>まずは、気になる場所をお聞かせください</h2>
-      <p>見積もり・現地確認は無料です。作業内容と金額を見てから依頼するか決められます。</p>
+      <p class="hc-eyebrow">Finally</p>
+      <h2 class="hc-title">最後にお伝えしたいこと</h2>
+      <div class="hc-profile">
+        <div class="hc-image-slot hc-image-slot--profile" data-image-slot="profile" role="img" aria-label="代表者の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">👤</span><strong>代表写真</strong><small>推奨：正方形／作業着・明るい表情</small></div></div>
+        <div>
+          <p class="hc-profile__role">ぐるり屋本舗 代表</p>
+          <h2>樋口 勝己</h2>
+          <p>清掃現場で、浴室・キッチン・トイレ・窓・室内などの作業に携わってきました。</p>
+          <p>気になる場所があっても、「この程度で頼んでよいのか」と迷うことがあると思います。まずは場所と状態を伺い、対応できる作業と難しい作業を分けてお伝えします。</p>
+          <p>作業内容と金額を確認し、納得できた場合にご依頼ください。</p>
+          <p>掃除を気にし続ける負担を減らし、ご自分やご家族のために使える時間を増やす。そのお手伝いができればと思っています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 相談窓口 -->
+  <section class="hc-cta">
+    <div class="hc-container">
+      <h2>気になる場所からご相談ください</h2>
+      <p>見積もり・現地確認は無料です。内容と金額を確認してからご依頼いただけます。</p>
       <div class="hc-actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="application">📞 電話で家をきれいにする</a>
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="final">📞 電話で家をきれいにする</a>
         <a class="hc-button hc-button--secondary" href="#contact">✉️ メールで家をきれいにする</a>
       </div>
     </div>
   </section>
 
-  <!-- 15. 支払い・キャンセル・特商法 -->
+  <!-- 支払い・キャンセル・運営者情報 -->
   <section class="hc-section hc-section--tint">
     <div class="hc-container">
       <p class="hc-eyebrow">Information</p>
@@ -1074,33 +1545,6 @@
     </div>
   </section>
 
-  <!-- 16. 最後に・想い -->
-  <section class="hc-section">
-    <div class="hc-narrow">
-      <p class="hc-eyebrow">Finally</p>
-      <h2 class="hc-title">「この程度で頼んでよいのか」と<br>迷っている方へ</h2>
-      <div class="hc-message">
-        <p>まずは場所と状態を伺い、対応できる作業と難しい作業を分けてお伝えします。</p>
-        <p>作業内容と金額を確認し、納得できた場合にご依頼ください。気になる1箇所からご相談いただけます。</p>
-      </div>
-      <div class="hc-actions" style="justify-content:center; margin-top:26px;">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="final">090-2162-6510へ電話する</a>
-        <a class="hc-button hc-button--secondary" href="#contact">フォームを開く</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11. 最後のご案内 -->
-  <section class="hc-cta" id="contact">
-    <div class="hc-container">
-      <h2>まずは、気になる場所をお聞かせください</h2>
-      <p>見積もり・現地確認は無料です。作業内容と金額を見てから依頼するか決められます。</p>
-      <div class="hc-actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="application">📞 電話で家をきれいにする</a>
-        <a class="hc-button hc-button--secondary" href="#contact">✉️ メールで家をきれいにする</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="hc-footer">
@@ -1151,5 +1595,28 @@
 </script>
 
 
+
+<script>
+// 追従フッター：FVのCTAボタンが画面から出たら表示する。
+// はしばみのサイト（script.js の stickyHeader）と同じ考え方。
+(function () {
+  var bar = document.querySelector('.hc-sticky');
+  var anchor = document.querySelector('.hc-hero__actions') || document.querySelector('.hc-hero');
+  if (!bar || !anchor) return;
+
+  // CTAが上端に近づいた時点で出す。「完全に消えてから」だと遅い（2026-09-12 本人指定）。
+  // ヘッダー（60px）に隠れ始める位置＋余裕40px＝100px。
+  // ※ヘッダーを毎回 querySelector で測る方式にしたら、ページの状態によって
+  //   282px を拾うことがあり、しきい値がぶれた。固定値にしてある。
+  var SHOW_AT = 100;
+
+  function update() {
+    bar.classList.toggle('is-visible', anchor.getBoundingClientRect().bottom < SHOW_AT);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+</script>
 </body>
 </html>
