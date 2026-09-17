@@ -546,6 +546,27 @@ $hc_contact_url = add_query_arg(
     .hc-cta h2 { margin: 0 0 12px; font-size: clamp(1.55rem, 4vw, 2.2rem); }
     .hc-cta > .hc-container > p { margin: 0 auto 24px; color: rgba(255,255,255,.78); }
     .hc-cta .hc-actions { justify-content: center; }
+    .hc-bonus {
+      list-style: none;
+      margin: 0 auto 26px;
+      padding: 0;
+      max-width: 620px;
+      display: grid;
+      gap: 11px;
+      text-align: left;
+      color: rgba(255,255,255,.92);
+      font-size: .97rem;
+      line-height: 1.75;
+    }
+    .hc-bonus li { position: relative; padding-left: 26px; }
+    .hc-bonus li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+      color: #fff;
+    }
     .hc-cta .hc-button--secondary { border-color: #fff; background: transparent; color: #fff; }
 
     .hc-legal {
@@ -569,6 +590,18 @@ $hc_contact_url = add_query_arg(
     .hc-footer strong { color: #fff; }
     .hc-footer p { margin: 6px 0 0; font-size: .78rem; }
     .hc-footer a { text-decoration: underline; }
+    .hc-footer__info { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.14); }
+    .hc-footer__info dl { margin: 0; display: grid; gap: 10px; }
+    .hc-footer__info dl > div { display: flex; gap: 18px; align-items: baseline; }
+    .hc-footer__info dt { flex: 0 0 82px; color: #fff; font-weight: 800; font-size: .8rem; }
+    .hc-footer__info dd { margin: 0; font-size: .82rem; line-height: 1.7; }
+    .hc-footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); }
+    .hc-footer__links a { color: rgba(255,255,255,.82); font-size: .82rem; }
+    .hc-footer__copy { margin: 18px 0 0; text-align: center; font-size: .74rem; color: rgba(255,255,255,.5); }
+    @media (max-width: 640px) {
+      .hc-footer__info dl > div { flex-direction: column; gap: 2px; }
+      .hc-footer__links { gap: 14px; }
+    }
     .hc-sticky {
       position: fixed;
       z-index: 120;
@@ -1001,10 +1034,10 @@ $hc_contact_url = add_query_arg(
     .hc-promises__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .hc-promise {
       background: #fff;
-      border: 1px solid var(--hc-line);
+      border: 1px solid #c9d8dc;
       border-radius: 14px;
       padding: 22px 22px 24px;
-      box-shadow: 0 10px 26px rgba(22, 107, 131, .10);
+      box-shadow: 0 4px 12px rgba(22, 107, 131, .06);
     }
     .hc-promise h2 { margin: 0 0 8px; font-size: 1.02rem; color: var(--hc-blue-dark); }
     .hc-promise p { margin: 0; font-size: .9rem; line-height: 1.75; color: #444; }
@@ -1071,10 +1104,10 @@ $hc_contact_url = add_query_arg(
     .hc-promise {
       background: rgba(255,255,255,.94);
       backdrop-filter: blur(2px);
-      border: 1px solid var(--hc-line);
+      border: 1px solid #c9d8dc;
       border-radius: 14px;
       padding: 18px 20px 20px;
-      box-shadow: 0 10px 26px rgba(22, 107, 131, .10);
+      box-shadow: 0 4px 12px rgba(22, 107, 131, .06);
     }
     .hc-promise h2 { margin: 0 0 6px; font-size: .98rem; color: var(--hc-blue-dark); }
     .hc-promise p { margin: 0; font-size: .86rem; line-height: 1.7; color: #444; }
@@ -1303,26 +1336,26 @@ $hc_contact_url = add_query_arg(
     </div>
     <div class="hc-container hc-hero__grid">
       <div>
-        <h1><span class="hc-hero__city">神奈川エリア地域密着</span><span class="hc-hero__service">ハウスクリーニング</span></h1>
-        <p class="hc-hero__copy">水回りやお部屋の気になる汚れをご相談ください。<br>作業内容と金額を確認してからご依頼いただけます。<br><strong class="hc-hero__note">気になる一箇所からでも大丈夫</strong></p>
+        <h1><span class="hc-hero__city">相模原市の</span><span class="hc-hero__service">ハウスクリーニング</span></h1>
+        <p class="hc-hero__copy">何年も気になっている場所、ありませんか。<br>浴室だけ、換気扇だけ。一箇所からお受けします。<br><strong class="hc-hero__note">相模原市・町田市・厚木市・多摩市へ伺います</strong></p>
       </div>
       <div class="hc-hero__space" aria-hidden="true"></div>
       <div class="hc-actions hc-hero__actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で家をきれいにする</a>
-        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="hero">📞 電話で聞いてみる</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ フォームで相談する</a>
       </div>
       <div class="hc-container hc-promises__grid" aria-label="ご依頼前のお約束">
         <div class="hc-promise">
-          <h2>追加料金なし</h2>
-          <p>作業範囲が変わらなければ、確認した金額から追加はしません。</p>
+          <h2>見積もりは無料</h2>
+          <p>出張費もいただきません。</p>
         </div>
         <div class="hc-promise">
-          <h2>キャンセル無料</h2>
-          <p>見積もり後・作業着手前のキャンセルは無料です。</p>
+          <h2>一箇所だけでOK</h2>
+          <p>浴室だけ、換気扇だけ。</p>
         </div>
         <div class="hc-promise">
-          <h2>作業前にご説明</h2>
-          <p>気になる場所と汚れの状態を確認し、できる作業と難しい作業をご説明します。</p>
+          <h2>その場で決めなくて大丈夫</h2>
+          <p>考えてからご連絡ください。</p>
         </div>
       </div>
     </div>
@@ -1332,126 +1365,187 @@ $hc_contact_url = add_query_arg(
   <section class="hc-section">
     <div class="hc-container">
       <p class="hc-eyebrow">Your concerns</p>
-      <h2 class="hc-title">こんなお掃除の悩みは<br><strong>ありませんか？</strong></h2>
+      <h2 class="hc-title">こんなお掃除の悩みは<strong>ありませんか？</strong></h2>
       <div class="hc-concerns-layout">
         <ul class="hc-concern-list">
-          <li><h3>何度掃除しても水回りの汚れが気になる</h3><p>浴室の黒カビや水垢、キッチンの油汚れが残り、見るたびに気持ちが重くなる。</p></li>
-          <li><h3>自分では落とし方が分からない</h3><p>洗剤や道具を試しても変わらず、これ以上どう掃除すればよいか迷っている。</p></li>
-          <li><h3>掃除の時間をなかなか取れない</h3><p>仕事や家事が続き、気になる場所を後回しにしたまま時間が過ぎている。</p></li>
-          <li><h3>高い所や力の要る掃除がつらい</h3><p>換気扇や窓、床など、無理な姿勢になる掃除が身体の負担になっている。</p></li>
-          <li><h3>汚れが気になって家で落ち着けない</h3><p>目に入るたびに気になり、家にいても気持ちが休まらない。</p></li>
-          <li><h3>人を呼ぶ前にきれいにしたい</h3><p>来客や生活の節目を前に、見られるのが気になる場所を整えておきたい。</p></li>
+          <li><h3>こすっても、黒カビがまた出てくる</h3><p>きれいにしたはずなのに、しばらくすると同じ場所に戻っている。</p></li>
+          <li><h3>自分でやりたい。でも、ここはもう無理かもしれない</h3><p>人に頼むのが嫌なのではなく、どこまで頼めるのか分からない。</p></li>
+          <li><h3>掃除の時間を、別のことに使いたい</h3><p>休みの日が掃除で終わってしまう。</p></li>
+          <li><h3>見積もりに来てもらったら、断りづらそう</h3><p>高くても、その場では「考えます」としか言えない気がする。</p></li>
+          <li><h3>頼むほどじゃない、と思ったまま何年も経った</h3><p>「これくらいで呼んでいいのかな」と、いつも止まってしまう。</p></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- 解決方法・サービス内容 -->
-  <section class="hc-section hc-section--tint" id="service">
+  <!-- 3. 解決方法提示 -->
+  <section class="hc-section hc-section--tint">
     <div class="hc-container">
-      <p class="hc-eyebrow">Services</p>
-      <h2 class="hc-title">そんなお悩み<br><strong>プロの清掃で解決をお手伝いします</strong></h2>
-      <p class="hc-lead">浴室の黒カビや水垢、キッチンの油汚れ、自分では手が届きにくい場所。汚れと素材の状態に合う方法で清掃し、後回しになっていた場所を整えます。<br><br>困っている1箇所だけでも大丈夫です。必要な作業と料金を作業前に確認し、ご納得いただいてから清掃します。</p>
-      <div class="hc-service-grid">
-        <!-- 画像枠07〜13：各サービスの内容が一目で分かる写真。 -->
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="bathroom" role="img" aria-label="浴室クリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>浴室の画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">BATHROOM</span><h3>浴室クリーニング</h3><p>黒カビ・水垢・排水口など、日常では落としにくい汚れを清掃します。</p></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="kitchen" role="img" aria-label="キッチンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>キッチンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">KITCHEN</span><h3>キッチンクリーニング</h3><p>キッチン台・シンク・コンロ・魚焼きグリルを清掃します。</p></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="range-hood" role="img" aria-label="レンジフード画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>レンジフードの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">RANGE HOOD</span><h3>レンジフード</h3><p>換気扇の油汚れやホコリを清掃します。分解範囲は事前確認します。</p></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="toilet" role="img" aria-label="トイレクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>トイレの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">TOILET</span><h3>トイレクリーニング</h3><p>日常の掃除で落としにくい尿石や黒ずみなどを清掃します。</p></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="floor" role="img" aria-label="床・フローリング洗浄画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>床・フローリングの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">FLOOR</span><h3>床・フローリング洗浄</h3><p>くすみや汚れを洗浄します。面積・作業範囲・状態を確認して見積もります。ワックスは含みません。</p></div></article>
-        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="air-conditioner" role="img" aria-label="エアコンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>エアコンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">AIR CONDITIONER</span><h3>エアコンクリーニング</h3><p>内部のカビやホコリを洗浄します。機種・状態を確認して対応可否と作業内容をご案内します。</p></div></article>
-        <article class="hc-service hc-service--wide"><div class="hc-image-slot hc-image-slot--service" data-image-slot="other" role="img" aria-label="窓・サッシ・網戸またはまるごと清掃画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>窓・まるごと清掃の画像</strong><small>推奨：横長</small></div></div><div class="hc-service__top"><div><span class="hc-service__label">OTHER</span><h3>窓・サッシ・網戸／まるごと清掃</h3></div><p>その他の気になる箇所、引越し後・退去前のお家のクリーニングもご相談ください。内容を確認して個別に見積もります。</p></div></article>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 選ばれる理由 -->
-  <section class="hc-section" id="reasons">
-    <div class="hc-container">
-      <h2 class="hc-title">当店が選ばれる<br><strong>5つの理由</strong></h2>
+      <p class="hc-eyebrow">Our answer</p>
+      <h2 class="hc-title">そのお悩みに<strong>こうお答えします</strong></h2>
       <ol class="hc-reason-list">
-        <li><div><h3>作業前に内容と料金を確定</h3><p>汚れ・設備・作業範囲を確認して見積もりをご案内します。作業範囲の追加・変更がない限り、追加料金はいただきません。</p></div></li>
-        <li><div><h3>困っている1箇所だけでも対応</h3><p>「浴室だけ」「キッチンだけ」でもご相談ください。家全体を頼む必要はなく、今いちばん気になっている場所からご依頼いただけます。</p></div></li>
-        <li><div><h3>汚れと素材の状態に合わせて清掃</h3><p>黒カビ・水垢・油汚れなど、日常の掃除では落としにくい汚れを確認し、箇所ごとに作業内容を決めて清掃します。</p></div></li>
-        <li><div><h3>できることと難しいことを先に説明</h3><p>素材の劣化や変色など、清掃で元に戻せない可能性もお伝えします。無理に作業を進めず、仕上がりの見通しを一緒に確認します。</p></div></li>
-        <li><div><h3>相談・見積もりだけでも大丈夫</h3><p>見積もり・現地確認は無料です。内容と金額を見てからご判断ください。見積もり後でも、作業着手前のキャンセルは無料です。</p></div></li>
+        <li><div><h3>お電話をいただければ、その場でおよその金額をお伝えします</h3><p>気になる場所と、お部屋の広さを教えてください。</p></div></li>
+        <li><div><h3>一箇所だけでも大丈夫です</h3><p>浴室だけ、換気扇だけ。それで構いません。</p></div></li>
+        <li><div><h3>無理におすすめはしません</h3><p>今回はやめておく、という結論でも大丈夫です。</p></div></li>
       </ol>
     </div>
   </section>
 
-  <!-- 相談窓口 -->
-  <section class="hc-cta" id="contact">
-    <div class="hc-container">
-      <h2>気になる場所からご相談ください</h2>
-      <p>見積もり・現地確認は無料です。内容と金額を確認してからご依頼いただけます。</p>
-      <div class="hc-actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="after-reasons">📞 電話で家をきれいにする</a>
-        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- お客様の声 -->
+  <!-- 4. ベネフィット -->
   <section class="hc-section">
     <div class="hc-container">
-      <p class="hc-eyebrow">Customer voices</p>
-      <h2 class="hc-title">お客様からいただいた声</h2>
-      <div class="hc-voices">
-        <article class="hc-voice">
-          <!-- 画像枠05：掲載許可済みのお客様アンケート原本。個人情報は伏せる。 -->
-          <div class="hc-image-slot hc-image-slot--voice" data-image-slot="voice-1" role="img" aria-label="お客様アンケート画像1を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📝</span><strong>お客様アンケート画像</strong><small>個人情報を伏せて掲載</small></div></div>
-          <div class="hc-stars" aria-label="総合評価5点中5点">★★★★★</div>
-          <blockquote>「家の水回り（キッチン、お風呂）をお願いし、キレイにしていただきました。ありがとうございました。」</blockquote>
-          <footer>相模原市・30代・会社員／2026年4月</footer>
-        </article>
-        <article class="hc-voice">
-          <!-- 画像枠06：掲載許可済みのお客様アンケート原本。個人情報は伏せる。 -->
-          <div class="hc-image-slot hc-image-slot--voice" data-image-slot="voice-2" role="img" aria-label="お客様アンケート画像2を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📝</span><strong>お客様アンケート画像</strong><small>個人情報を伏せて掲載</small></div></div>
-          <div class="hc-stars" aria-label="総合評価5点中5点">★★★★★</div>
-          <blockquote>「スタッフの対応・感じがよかったです。……又、お願いしたいです。」</blockquote>
-          <footer>横浜市・70代・自営業／2026年2月</footer>
-        </article>
+      <p class="hc-eyebrow">Benefits</p>
+      <h2 class="hc-title">お任せいただくと<strong>こうなります</strong></h2>
+      <ol class="hc-reason-list">
+        <li><div><h3>家庭用の洗剤では届かない場所に、専用の道具で手を入れます</h3><p>ふたを開け、部品を外して、内側から洗います。</p></div></li>
+        <li><div><h3>掃除をしている間、家のことは手が離せます</h3><p>洗濯でも、お子さんの相手でも。こちらは浴室だけ見ています。</p></div></li>
+        <li><div><h3>見ているだけで終わります</h3><p>動かすもの、運ぶもの、こすること。全部こちらでやります。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. 自分ごと -->
+  <section class="hc-section hc-section--tint">
+    <div class="hc-container">
+      <p class="hc-eyebrow">For you</p>
+      <h2 class="hc-title">こんな方から<strong>ご依頼いただいています</strong></h2>
+      <div class="hc-concerns-layout">
+        <ul class="hc-concern-list">
+          <li><h3>休みの日を、掃除でつぶしたくない方</h3></li>
+          <li><h3>やらなきゃと思いながら、何か月も過ぎている方</h3></li>
+          <li><h3>高い所や、重いものを動かす掃除がつらくなってきた方</h3></li>
+          <li><h3>お客さんが来る前に、汚れている場所をきれいにしておきたい方</h3></li>
+          <li><h3>家じゅうではなく、気になる場所だけ頼みたい方</h3></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- 施工事例 -->
-  <section class="hc-section hc-section--tint" id="examples">
+  <!-- 6. 自己紹介 -->
+  <section class="hc-section" id="profile">
     <div class="hc-container">
-      <h2 class="hc-title">施工事例・ビフォーアフター</h2>
-      <!-- 画像枠03・04：同一現場の施工前後。実案件の許可取得済み写真だけを使用。 -->
-      <div class="hc-ba-wrap">
-        <div class="hc-ba-grid">
-          <div class="hc-image-slot" data-image-slot="before" role="img" aria-label="施工前の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">BEFORE</span><strong>施工前の写真</strong><small>推奨：横位置／同じ角度で撮影</small></div></div>
-          <div class="hc-image-slot" data-image-slot="after" role="img" aria-label="施工後の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">AFTER</span><strong>施工後の写真</strong><small>推奨：横位置／施工前と同じ角度</small></div></div>
+      <p class="hc-eyebrow">Profile</p>
+      <h2 class="hc-title">ご相談を<strong>受ける人</strong></h2>
+      <div class="hc-profile">
+        <div class="hc-image-slot hc-image-slot--profile" data-image-slot="profile" role="img" aria-label="代表者の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">👤</span><strong>代表写真</strong><small>推奨：正方形／作業着・白い壁か外</small></div></div>
+        <div>
+          <p class="hc-profile__role">ぐるり屋本舗</p>
+          <h2>樋口 勝己</h2>
+          <p><strong>飲食店で30年、毎日の終業後に厨房を掃除してきました。</strong></p>
+          <p>コンロの油と焦げ、蛇口の石灰、食器洗浄機に固まったカルキ。毎日やっても、放っておけばすぐ戻ります。店舗を引き継いだときは、もっとひどい状態でした。換気扇とフードに油がびっしりついていて、床も油で滑ります。</p>
+          <p>そういう場所の汚れを落としてきました。<strong>どの洗剤と道具を使い、どういう順番でやれば早いか。</strong>それが身についていたのが、いまの仕事につながっています。</p>
+          <p>浴室、キッチン、換気扇、窓、床。ひととおり現場でやっています。エアコンは分解と養生に手間をかけます。ここを省くと、<strong>洗ったあとの汚れた水が、壁や床に垂れます。</strong></p>
+          <p><strong>できないことは、先に言います。</strong><br>古い設備は、強くこすると塗装がはがれたり、部品が割れたりします。無理に作業して壊してしまうと、掃除代より修理代のほうが高くつきます。<strong>無理なところは、無理だとお伝えします。</strong>そのうえで、できる範囲をご提案します。</p>
+          <p><strong>お伺いするのは私です。</strong><br>電話で話した人間と、見積もりに行く人間と、掃除をする人間が同じです。「聞いていません」ということが起きません。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 料金・パックプラン -->
+  <!-- 8. お客様の声：実績が出るまで非表示（紙のアンケートで集める） -->
+
+  <!-- 14. 申し込み -->
+  <section class="hc-cta">
+    <div class="hc-container">
+      <h2>気になる場所からご相談ください</h2>
+      <p>見積もりは無料です。出張費もいただきません。</p>
+      <div class="hc-actions">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="after-profile">📞 電話で聞いてみる</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ フォームで相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 商品説明 -->
+  <section class="hc-section hc-section--tint" id="service">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Services</p>
+      <h2 class="hc-title">メニュー</h2>
+      <div class="hc-service-grid">
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="bathroom" role="img" aria-label="浴室クリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>浴室の画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">BATHROOM</span><h3>浴室クリーニング</h3><p><strong>天井から排水口まで。</strong>自分ではやりにくい場所を、専用の洗剤と道具で洗います。</p><p><strong>洗う場所</strong>／浴槽・天井・壁・床・ドア・鏡・蛇口・金具・排水口・照明・換気扇のまわり・小物</p><p><strong>作業時間の目安：約2時間</strong></p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="kitchen" role="img" aria-label="キッチンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>キッチンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">KITCHEN</span><h3>キッチンクリーニング</h3><p><strong>油と水あかを、両方落とします。</strong>キッチンは汚れの種類が多いので、場所ごとに洗剤を使い分けます。</p><p><strong>洗う場所</strong>／シンク・排水口・蛇口・調理台・コンロ・魚焼きグリル（中まで）・収納の扉（外側）・窓の内側</p><p><strong>作業時間の目安：約2時間</strong></p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="range-hood" role="img" aria-label="レンジフード画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>レンジフードの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">RANGE HOOD</span><h3>レンジフード（換気扇）クリーニング</h3><p><strong>シロッコファンまで外して洗います。</strong>フードの中にたまった油は、外からふいても落ちません。<strong>外さないと届きません。</strong></p><p><strong>洗う場所</strong>／手前の板・フィルター・シロッコファン・ファンが入っている内側・本体の外側</p><p><strong>作業時間の目安：約1時間</strong></p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="toilet" role="img" aria-label="トイレクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>トイレの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">TOILET</span><h3>トイレクリーニング</h3><p><strong>においの元から落とします。</strong>トイレのにおいは便器だけでなく、<strong>床や壁にもしみ込みます。</strong></p><p><strong>洗う場所</strong>／便器・便座・ウォシュレットのノズル・タンクの表面と手洗い・ペーパーホルダー・収納の扉（外側）・壁・床・幅木（壁の下のふち）・換気口の表面</p><p><strong>作業時間の目安：約1時間</strong></p></div></article>
+        <article class="hc-service"><div class="hc-image-slot hc-image-slot--service" data-image-slot="air-conditioner" role="img" aria-label="エアコンクリーニング画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>エアコンの画像</strong><small>推奨：横位置</small></div></div><div class="hc-service__top"><span class="hc-service__label">AIR CONDITIONER</span><h3>エアコンクリーニング</h3><p><strong>中のカビとホコリを洗い流します。</strong>フィルターを洗うだけでは、においは取れません。</p><p><strong>洗う場所</strong>／フィルター・送風ファン・熱交換器・吹き出し口・ルーバー・本体カバー</p><p><strong>作業時間の目安：約2時間</strong></p></div></article>
+        <article class="hc-service hc-service--wide"><div class="hc-image-slot hc-image-slot--service" data-image-slot="other" role="img" aria-label="窓・サッシ・網戸またはまるごと清掃画像を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">📷</span><strong>窓・まるごと清掃の画像</strong><small>推奨：横長</small></div></div><div class="hc-service__top"><div><span class="hc-service__label">OTHER</span><h3>そのほかのご相談</h3></div><p>窓・サッシ・網戸、<strong>家じゅうまとめて</strong>、引っ越しの前後なども承ります。<strong>金額は、お部屋を見てからお伝えします。</strong>まずはご相談ください。</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 特徴・選ばれる理由 -->
+  <section class="hc-section" id="reasons">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Why us</p>
+      <h2 class="hc-title">こちらから<strong>先に言います</strong></h2>
+      <ol class="hc-reason-list">
+        <li><div><h3>来る人の顔が、先に分かります</h3><p>写真の私が、そのまま伺います。当日、知らない人が立っていることはありません。</p></div></li>
+        <li><div><h3>その日に決めていただくことは、ありません</h3><p>気になる場所が見つかれば、お伝えします。頼むかどうかは、後日で構いません。</p></div></li>
+        <li><div><h3>遅れそうなときは、必ず連絡します</h3><p>連絡がないまま、お待たせすることはしません。</p></div></li>
+        <li><div><h3>始める前に、一緒に見ます</h3><p>どこをどう洗うか、作業の前にお伝えします。気になっている場所があれば、そのとき教えてください。</p></div></li>
+        <li><div><h3>終わる前に、一緒に見ていただきます</h3><p>気になるところがあれば、その場で直します。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 11. 不安や疑問（FAQ） -->
+  <section class="hc-section hc-section--cream" id="faq">
+    <div class="hc-narrow">
+      <p class="hc-eyebrow">FAQ</p>
+      <h2 class="hc-title">よくあるご質問</h2>
+      <div class="hc-faq">
+        <details><summary>どのくらい前に連絡すればいいですか？</summary><div class="hc-faq__answer"><p>手が空いていれば、最短で翌日に伺えます。ただ、早めにご連絡いただけるほど、準備と段取りができます。先に一度見に行って、ご相談しながら金額を決めることもできます。</p></div></details>
+        <details><summary>対応エリアの外なのですが、頼めますか？</summary><div class="hc-faq__answer"><p>お受けします。その場合は、交通費を別にいただきます。まずはご相談ください。</p></div></details>
+        <details><summary>表示されている金額から変わることはありますか？</summary><div class="hc-faq__answer"><p>見に行って、洗う場所と金額を決めてからお伝えします。決めたあとは、お客様から追加のご依頼がない限り変わりません。作業の日に金額が上がることはありません。</p></div></details>
+        <details><summary>作業の前に、片付けは必要ですか？</summary><div class="hc-faq__answer"><p>片付けは要りません。ただ、洗う場所に置いてあるものだけ、先にどけていただけると助かります。お客様のものには、なるべく触らないようにしているためです。</p></div></details>
+        <details><summary>作業の間、家にいなければいけませんか？</summary><div class="hc-faq__answer"><p>いても、いなくても大丈夫です。お出かけになる場合は、始める前と終わったあとの写真をお送りして、お電話でご報告します。</p></div></details>
+        <details><summary>小さい子どもやペットがいても頼めますか？</summary><div class="hc-faq__answer"><p>大丈夫です。先に教えていただければ、それに合わせて作業します。</p></div></details>
+        <details><summary>洗剤のにおいは残りますか？</summary><div class="hc-faq__answer"><p>ふだんは、においのない洗剤を使います。汚れがひどい場所には強い洗剤を使うことがあり、そのときはにおいが残り、換気が必要になることもあります。強い洗剤を使うときは、必ず先にお伝えして、確認してから使います。</p></div></details>
+        <details><summary>汚れは全部落ちますか？</summary><div class="hc-faq__answer"><p>落ちない汚れもあります。素材にしみ込んだ色や、表面が傷んで変わってしまった色は、洗っても戻りません。見て分かるものは、作業の前にお伝えします。あとから「落ちませんでした」と言うことはしません。</p></div></details>
+        <details><summary>女性の一人暮らしですが、大丈夫ですか？</summary><div class="hc-faq__answer"><p>伺うのは、上の写真の私一人です。身分証をお見せしてから、家に上がります。入る場所も、先にお伝えします。お伝えした場所以外には入りません。作業の間、ずっと見ていただいて構いません。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. 金額 -->
   <section class="hc-section" id="price">
     <div class="hc-container">
       <p class="hc-eyebrow">Price</p>
-      <h2 class="hc-title">料金一覧</h2>
+      <h2 class="hc-title">料金</h2>
+      <p class="hc-lead">表示はすべて税込です。</p>
       <div class="hc-price-wrap">
         <table class="hc-price-table">
-          <thead><tr><th>メニュー</th><th>税込料金</th><th>基本内容・確認事項</th></tr></thead>
+          <caption class="hc-price-caption">1か所ずつ（税込・2026年9月時点）</caption>
+          <thead><tr><th>メニュー</th><th>税込料金</th><th>作業時間の目安</th></tr></thead>
           <tbody>
-            <tr><td>浴室</td><td>19,800円〜</td><td>黒カビ・水垢・排水口等</td></tr>
-            <tr><td>キッチン</td><td>19,800円〜</td><td>キッチン台・シンク・コンロ・魚焼きグリル</td></tr>
-            <tr><td>レンジフード</td><td>19,800円〜</td><td>油汚れ・ホコリ。分解範囲は事前確認</td></tr>
-            <tr><td>トイレ</td><td>9,900円〜</td><td>尿石・黒ずみ等</td></tr>
-            <tr><td>床・フローリング</td><td>10,000円〜</td><td>面積・作業範囲・状態を確認。ワックスなし</td></tr>
-            <tr><td>エアコン</td><td>12,000円〜</td><td>機種・状態を確認して対応可否と作業内容を案内</td></tr>
-            <tr><td>浴室＋トイレ</td><td>27,000円〜</td><td>2箇所パック</td></tr>
-            <tr><td>浴室＋キッチン＋レンジフード</td><td>55,000円〜</td><td>3箇所パック</td></tr>
-            <tr><td>窓・まるごと・退去前後</td><td>事前見積もり</td><td>内容と範囲を確認してご案内</td></tr>
+            <tr><td>浴室クリーニング</td><td>19,800円〜（税込）</td><td>約2時間</td></tr>
+            <tr><td>キッチンクリーニング</td><td>19,800円〜（税込）</td><td>約2時間</td></tr>
+            <tr><td>レンジフード（換気扇）クリーニング</td><td>19,800円〜（税込）</td><td>約1時間</td></tr>
+            <tr><td>トイレクリーニング</td><td>16,500円〜（税込）</td><td>約1時間</td></tr>
+            <tr><td>エアコンクリーニング（1台）</td><td>13,200円〜（税込）</td><td>約2時間</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="hc-price-attention">「〜」の料金は、汚れ・設備・作業範囲により変わります。現地確認後に金額を確定し、作業範囲の追加・変更がない限り、確定後の追加料金はありません。</p>
+      <div class="hc-price-wrap">
+        <table class="hc-price-table">
+          <caption class="hc-price-caption">まとめて頼むと、安くなります（税込・2026年9月時点）</caption>
+          <thead><tr><th>セット</th><th>税込料金</th><th>お得額</th></tr></thead>
+          <tbody>
+            <tr><td>浴室＋トイレ</td><td>33,800円〜（税込）</td><td>1か所ずつ頼むより<strong>2,500円お得</strong></td></tr>
+            <tr><td>浴室＋キッチン＋レンジフード</td><td>53,400円〜（税込）</td><td>1か所ずつ頼むより<strong>6,000円お得</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="hc-price-wrap">
+        <table class="hc-price-table">
+          <caption class="hc-price-caption">オプション（税込・2026年9月時点）</caption>
+          <thead><tr><th>内容</th><th>税込料金</th><th>補足</th></tr></thead>
+          <tbody>
+            <tr><td>エプロン内部の洗浄（浴室）</td><td>5,500円（税込）</td><td>浴槽の横のカバーを外して内側を洗います</td></tr>
+            <tr><td>換気扇内部の洗浄（浴室）</td><td>3,300円（税込）</td><td>―</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hc-price-attention">表示はすべて<strong>税込</strong>です。汚れの状態によっては、<strong>追加の料金をいただくことがあります。</strong>金額は、<strong>見積もりのときに、内容をご説明したうえで決めます。決まった金額から、あとで増えることはありません。</strong></p>
       <p class="hc-note">駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p>
     </div>
   </section>
@@ -1459,97 +1553,82 @@ $hc_contact_url = add_query_arg(
   <!-- 対応エリア -->
   <section class="hc-section hc-section--tint" id="area">
     <div class="hc-container">
-      <h2 class="hc-title">相模原市のハウスクリーニング<br><strong>気になる場所へお伺いします</strong></h2>
-      <div class="hc-message"><p>相模原市を中心に、訪問でハウスクリーニングを承ります。対応できる地域や日程は、作業内容を伺ってからご案内します。</p><p>対応地域か迷う場合も、お問い合わせ時にご確認ください。</p></div>
-
+      <h2 class="hc-title">相模原市ほかへ<strong>お伺いします</strong></h2>
+      <div class="hc-message"><p><strong>相模原市・町田市・厚木市・多摩市・愛川町</strong>へ伺います。</p><p>対応エリアの外でもお受けします。その場合は、交通費を別にいただきます。まずはご相談ください。</p></div>
     </div>
   </section>
 
-  <!-- 相談窓口 -->
+  <!-- 14. 申し込み -->
   <section class="hc-cta">
     <div class="hc-container">
-      <h2>気になる場所からご相談ください</h2>
-      <p>見積もり・現地確認は無料です。内容と金額を確認してからご依頼いただけます。</p>
+      <h2>まずは金額だけ聞いてみてください</h2>
+      <p>ご相談とお見積もりは、無料です。</p>
+      <ul class="hc-bonus">
+        <li><strong>見積もりに伺うのに、お金はいただきません。</strong>出張費もかかりません。</li>
+        <li><strong>見積もりのあと、その場で決めなくて構いません。</strong>考えてから、お返事をください。</li>
+        <li><strong>2か所まとめると7%、3か所まとめると10%お安くなります。</strong></li>
+      </ul>
       <div class="hc-actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="after-area">📞 電話で家をきれいにする</a>
-        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="after-price">📞 電話で聞いてみる</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ フォームで相談する</a>
       </div>
     </div>
   </section>
 
-  <!-- ご依頼の流れ -->
+  <!-- 15. ご依頼の流れ -->
   <section class="hc-section" id="flow">
     <div class="hc-container">
       <h2 class="hc-title">ご依頼の流れ</h2>
+      <p class="hc-lead">お問い合わせからお支払いまで、4つのステップです。</p>
       <div class="hc-flow">
-        <article class="hc-flow__item"><div><h3>📞 STEP 1：お問い合わせ</h3><p>電話またはフォームからご連絡ください。<br>気になる箇所と希望時期をお知らせください。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-contact" role="img" aria-label="お問い合わせのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📞</span><strong>お問い合わせの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-        <article class="hc-flow__item"><div><h3>📝 STEP 2：無料お見積もり</h3><p>作業内容・料金・時間の目安をご説明します。<br>納得いただいた場合のみ日程を決めます。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-quote" role="img" aria-label="お見積もりのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📝</span><strong>お見積もりの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-        <article class="hc-flow__item"><div><h3>🧹 STEP 3：クリーニング作業</h3><p>内容と金額に納得いただいてから作業します。<br>作業前後で仕上がりをご確認いただきます。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-cleaning" role="img" aria-label="クリーニング作業のイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>🧹</span><strong>クリーニング作業の画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-        <article class="hc-flow__item"><div><h3>💴 STEP 4：完了・お支払い</h3><p>仕上がりをご確認いただいたあと、お支払いとなります。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-payment" role="img" aria-label="お支払いのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>💴</span><strong>お支払いの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>01　お問い合わせ</h3><p>お電話またはフォームから、ご連絡ください。<strong>お電話なら、その場でおよその金額をお伝えします。</strong>気になる場所と、お部屋の広さを教えてください。<br>電話 090-2162-6510（9:00〜19:00・年中無休）／フォームは24時間受け付けています。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-contact" role="img" aria-label="お問い合わせのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📞</span><strong>お問い合わせの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>02　お見積もり</h3><p><strong>無料です。出張費もいただきません。</strong>お部屋を見て、洗う場所と金額をお伝えします。汚れの状態で追加の料金が必要な場合も、ここでご説明します。<strong>作業の内容と金額を書いた紙をお渡しします。その場で決めていただく必要はありません。</strong><br>※お見積もりは、作業の前日までに伺う場合と、作業当日に行う場合があります。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-quote" role="img" aria-label="お見積もりのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📝</span><strong>お見積もりの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>03　クリーニング</h3><p><strong>始める前に、どこをどう洗うかを一緒に見ます。</strong>立ち会いは、最初と最後だけで大丈夫です。途中でお出かけになっても構いません。<strong>ずっとお留守の場合は、始める前と終わったあとの写真をお送りして、お電話でご報告します。</strong></p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-cleaning" role="img" aria-label="クリーニング作業のイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>🧹</span><strong>クリーニング作業の画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>04　お支払い</h3><p><strong>終わる前に、一緒に見ていただきます。</strong>気になるところがあれば、その場で直します。仕上がりをご確認いただいてから、<strong>現金</strong>でお支払いください。<strong>領収書をお出しします。</strong></p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-payment" role="img" aria-label="お支払いのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>💴</span><strong>お支払いの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+      </div>
+      <div class="hc-legal">
+        <article class="hc-legal__card"><h3>お支払い</h3><ul><li>現金のみ</li><li>作業が終わったあと、その場で</li><li>領収書をお出しします</li></ul></article>
+        <article class="hc-legal__card"><h3>キャンセル</h3><ul><li>作業の前日までにお見積もりをした場合 … 作業の前日まで無料</li><li>作業当日にお見積もりをした場合 … 作業を始めるまで無料</li><li>日程の変更は、前日までにご連絡ください</li></ul></article>
       </div>
     </div>
   </section>
 
-  <!-- よくあるご質問 -->
-  <section class="hc-section hc-section--cream" id="faq">
-    <div class="hc-narrow">
-      <p class="hc-eyebrow">FAQ</p>
-      <h2 class="hc-title">よくあるご質問</h2>
-      <div class="hc-faq">
-        <details><summary>相談や見積もりだけでも大丈夫ですか？</summary><div class="hc-faq__answer"><p>はい。見積もり・現地確認は無料です。内容と金額を確認してからご判断ください。</p></div></details>
-        <details><summary>表示された金額から変わることはありますか？</summary><div class="hc-faq__answer"><p>現地確認後に作業内容と金額を確定します。お客様から作業範囲の追加・変更がない限り、確定した見積もりから追加料金はいただきません。</p></div></details>
-        <details><summary>誰が来ますか？</summary><div class="hc-faq__answer"><p>作業内容と日程を確認し、対応できる担当者をご案内します。</p></div></details>
-        <details><summary>駐車場がない場合はどうなりますか？</summary><div class="hc-faq__answer"><p>作業場所に駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p></div></details>
-        <details><summary>汚れはすべて落ちますか？</summary><div class="hc-faq__answer"><p>素材の劣化、変色、染み込みなど、清掃では元に戻せない場合があります。事前確認で分かる範囲は作業前にお伝えします。</p></div></details>
-        <details><summary>見積もり後に断ることはできますか？</summary><div class="hc-faq__answer"><p>はい。見積もり後でも、作業着手前のキャンセルは無料です。</p></div></details>
-        <details><summary>支払い方法は何がありますか？</summary><div class="hc-faq__answer"><p>現金または銀行振込でお支払いいただけます。</p></div></details>
+  <!-- 7. メッセージ -->
+  <section class="hc-section hc-section--tint">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Message</p>
+      <h2 class="hc-title">私も<strong>同じでした</strong></h2>
+      <div class="hc-message">
+        <p><strong>飲食店で30年働きました。</strong>家族のため、生活のためと思って、休むという選択肢は持っていませんでした。だから時間がない、もう無理かもしれないという感覚は、私には決して他人事ではありません。</p>
+        <p><strong>30年のうち、10年ほどは家を空けていました。長いときで3年。</strong>その間は家のことも自分でやっていました。仕事から帰って、掃除まで手が回らない。あれは本当にきつかったです。</p>
+        <p><strong>できないことを人に頼るのは、決して手を抜くことではありません。</strong><br>きついと感じているなら、一箇所だけで構いません。<strong>その一箇所を引き受けるために、私はこの仕事をしています。</strong></p>
       </div>
     </div>
   </section>
 
-  <!-- 最後に・想い -->
+  <!-- 16. 最後に -->
   <section class="hc-section">
     <div class="hc-container">
       <p class="hc-eyebrow">Finally</p>
-      <h2 class="hc-title">最後にお伝えしたいこと</h2>
-      <div class="hc-profile">
-        <div class="hc-image-slot hc-image-slot--profile" data-image-slot="profile" role="img" aria-label="代表者の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">👤</span><strong>代表写真</strong><small>推奨：正方形／作業着・明るい表情</small></div></div>
-        <div>
-          <p class="hc-profile__role">ぐるり屋本舗 代表</p>
-          <h2>樋口 勝己</h2>
-          <p>清掃現場で、浴室・キッチン・トイレ・窓・室内などの作業に携わってきました。</p>
-          <p>気になる場所があっても、「この程度で頼んでよいのか」と迷うことがあると思います。まずは場所と状態を伺い、対応できる作業と難しい作業を分けてお伝えします。</p>
-          <p>作業内容と金額を確認し、納得できた場合にご依頼ください。</p>
-          <p>掃除を気にし続ける負担を減らし、ご自分やご家族のために使える時間を増やす。そのお手伝いができればと思っています。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- 相談窓口 -->
-  <section class="hc-cta">
-    <div class="hc-container">
-      <h2>気になる場所からご相談ください</h2>
-      <p>見積もり・現地確認は無料です。内容と金額を確認してからご依頼いただけます。</p>
-      <div class="hc-actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="final">📞 電話で家をきれいにする</a>
-        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ メールで家をきれいにする</a>
+      <h2 class="hc-title">最後に</h2>
+      <div class="hc-message">
+        <p><strong>何年も気になっていた場所だと思います。</strong>目に入るたびに「そのうちやろう」と思いながら、そのままになってきたのではないでしょうか。</p>
+        <p><strong>洗ってしまえば、1〜2時間で終わります。</strong>何年も抱えてきたことが、その日のうちに片づきます。それだけのことです。</p>
+        <p><strong>全部でなくて構いません。</strong>いちばん気になる一箇所から始めてください。浴室だけ、換気扇だけ。<strong>そういうご依頼を、私は小さいとは思っていません。</strong></p>
+        <p>相模原から離れるつもりはありません。近くにいますので、一度伺えば、次からは電話一本でお受けできます。</p>
+        <p><strong>「これ、落ちますか」だけでも構いません。</strong>答えるのは、私の仕事です。<strong>頼むかどうかは、それから決めてください。</strong></p>
       </div>
     </div>
   </section>
 
-  <!-- 支払い・キャンセル・運営者情報 -->
-  <section class="hc-section hc-section--tint">
+  <!-- 14. 申し込み -->
+  <section class="hc-cta">
     <div class="hc-container">
-      <p class="hc-eyebrow">Information</p>
-      <h2 class="hc-title">お支払い・キャンセル</h2>
-      <div class="hc-legal">
-        <article class="hc-legal__card"><h3>お支払い</h3><ul><li>現金</li><li>銀行振込</li></ul></article>
-        <article class="hc-legal__card"><h3>キャンセル</h3><ul><li>見積もり後・作業着手前は無料</li><li>変更がある場合は、分かり次第ご連絡ください</li></ul></article>
-      </div>
-      <div class="hc-legal__links">
-        <a href="<?php echo esc_url(home_url('/tokusho/')); ?>">特定商取引法に基づく表記</a>
-        <a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a>
-        <a href="<?php echo esc_url($hc_contact_url); ?>">お問い合わせ</a>
+      <h2>「これ、落ちますか」だけでも構いません</h2>
+      <p>ご相談とお見積もりは無料です。出張費もいただきません。</p>
+      <div class="hc-actions">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="final">📞 電話で聞いてみる</a>
+        <a class="hc-button hc-button--secondary" href="<?php echo esc_url($hc_contact_url); ?>">✉️ フォームで相談する</a>
       </div>
     </div>
   </section>
@@ -1561,6 +1640,22 @@ $hc_contact_url = add_query_arg(
     <div><strong>ぐるり屋本舗</strong><p>代表：樋口勝己</p></div>
     <div><strong><a href="tel:09021626510" data-cta-location="footer">090-2162-6510</a></strong><p>受付 9:00〜19:00・年中無休</p></div>
   </div>
+  <div class="hc-container hc-footer__info">
+    <dl>
+      <div><dt>屋号</dt><dd>ぐるり屋本舗</dd></div>
+      <div><dt>代表</dt><dd>樋口勝己</dd></div>
+      <div><dt>所在地</dt><dd>請求があった場合、遅滞なく開示いたします</dd></div>
+      <div><dt>対応エリア</dt><dd>相模原市・町田市・厚木市・多摩市・愛川町（エリア外もご相談ください）</dd></div>
+      <div><dt>電話</dt><dd><a href="tel:09021626510" data-cta-location="footer-info">090-2162-6510</a></dd></div>
+      <div><dt>受付時間</dt><dd>9:00〜19:00（年中無休）</dd></div>
+    </dl>
+  </div>
+  <div class="hc-container hc-footer__links">
+    <a href="<?php echo esc_url(home_url('/tokusho/')); ?>">特定商取引法に基づく表記</a>
+    <a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a>
+    <a href="<?php echo esc_url($hc_contact_url); ?>">お問い合わせ</a>
+  </div>
+  <p class="hc-footer__copy">&copy; 2026 ぐるり屋本舗 All Rights Reserved.</p>
 </footer>
 
 <nav class="hc-sticky" aria-label="お問い合わせ">
