@@ -1641,6 +1641,7 @@ $hc_form_id = 0;
       <ul class="hc-area-list">
         <li class="hc-area-chip hc-area-chip--part"><span aria-hidden="true">📍</span>横浜市 青葉区</li>
         <li class="hc-area-chip hc-area-chip--part"><span aria-hidden="true">📍</span>横浜市 都筑区</li>
+        <li class="hc-area-chip hc-area-chip--part"><span aria-hidden="true">📍</span>横浜市 緑区</li>
         <li class="hc-area-chip hc-area-chip--part"><span aria-hidden="true">📍</span>横浜市 旭区</li>
         <li class="hc-area-chip hc-area-chip--part"><span aria-hidden="true">📍</span>横浜市 瀬谷区</li>
         <li class="hc-area-chip hc-area-chip--part"><span aria-hidden="true">📍</span>川崎市 麻生区</li>
@@ -1649,7 +1650,7 @@ $hc_form_id = 0;
         <li class="hc-area-chip hc-area-chip--part"><span aria-hidden="true">📍</span>愛川町</li>
       </ul>
       <p class="hc-note">上の区と地域でも場所によってはお受けできないことがあります。お電話で住所をお聞きしてお答えします。</p>
-      <img class="hc-photo hc-photo--area" src="<?php echo get_stylesheet_directory_uri(); ?>/images/area-map.svg" width="1120" height="602" loading="lazy" decoding="async" alt="対応エリアの地図。相模原市・町田市・座間市・大和市の全域と、横浜市の青葉区・都筑区・旭区・瀬谷区、川崎市の麻生区、多摩市、厚木市の北部、愛川町へ伺います">
+      <img class="hc-photo hc-photo--area" src="<?php echo get_stylesheet_directory_uri(); ?>/images/area-map.svg" width="1120" height="602" loading="lazy" decoding="async" alt="対応エリアの地図。相模原市・町田市・座間市・大和市の全域と、横浜市の青葉区・都筑区・緑区・旭区・瀬谷区、川崎市の麻生区、多摩市、厚木市の北部、愛川町へ伺います">
       <p class="hc-note">エリアの外は、交通費を別にいただきます。</p>
     </div>
   </section>
