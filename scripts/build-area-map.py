@@ -15,9 +15,9 @@ CACHE=os.path.join(os.path.dirname(os.path.abspath(__file__)),"..",".mapdata")
 CACHE=os.path.abspath(CACHE)
 
 # ── 対応エリアの定義（ここだけ直せば地図が変わる） ──────────────
-FULL  = {"14150":"相模原市","13209":"町田市"}                      # 全域
+FULL  = {"14150":"相模原市","13209":"町田市","14216":"座間市","14213":"大和市"}   # 全域
 PART  = {"13224":"多摩市","14212":"厚木市","14401":"愛川町"}        # 一部（市町村まるごと）
-WARDS = {"14137":"麻生区","14114":"瀬谷区","14117":"青葉区","14112":"旭区"}   # 一部（区単位）
+WARDS = {"14137":"麻生区","14114":"瀬谷区","14117":"青葉区","14112":"旭区","14118":"都筑区"}   # 一部（区単位）
 # ────────────────────────────────────────────────
 
 def fetch(pref):
@@ -117,15 +117,28 @@ S.append('</g>')
 labels=[]
 for code,(nm,rings) in U.items():
     a,(x,y)=big(rings)
-    if a<1400 or not (10<x<W-10 and 10<y<H-10): continue
-    labels.append((a,x,y,nm,code))
-labels.sort(reverse=True)
+    tier = 0 if code in FULL else (1 if (code in PART or code in WARDS) else 2)
+    if tier==2 and a<1400: continue
+    if a<150 or not (10<x<W-10 and 10<y<H-10): continue
+    labels.append((tier,-a,x,y,nm,code))   # 対象エリアを先に置く
+labels.sort()
+labels=[(-a,x,y,nm,code) for tier,a,x,y,nm,code in labels]
 placed=[]
 for a,x,y,nm,code in labels:
     tier = "full" if code in FULL else ("part" if (code in PART or code in WARDS) else "other")
     fs = 30 if tier=="full" else (21 if tier=="part" else 16)
     w=len(nm)*fs*1.02; h=fs*1.25
-    if any(abs(x-px)<(w+pw)/2 and abs(y-py)<(h+ph)/2 for px,py,pw,ph in placed): continue
+    def hits(cx,cy,cw,ch,f=1.0):
+        return any(abs(cx-px)<(cw+pw)/2*f and abs(cy-py)<(ch+ph)/2*f for px,py,pw,ph in placed)
+    if hits(x,y,w,h):
+        if tier=="other": continue
+        # 対象エリアは必ず名前を出す。小さくして、それでも重なるなら少しずらす
+        fs=max(14,int(fs*0.62)); w=len(nm)*fs*1.02; h=fs*1.25
+        moved=False
+        for dx,dy in [(0,0),(0,-h),(0,h),(-w*.6,0),(w*.6,0),(0,-h*1.8),(0,h*1.8),(-w*.7,-h),(w*.7,h)]:
+            if not hits(x+dx,y+dy,w,h,0.8) and 10<x+dx<W-10 and 10<y+dy<H-10:
+                x,y=x+dx,y+dy; moved=True; break
+        if not moved: continue
     placed.append((x,y,w,h))
     fill = "#ffffff" if tier=="full" else th["ink"]
     st   = th["stroke"] if tier=="full" else "#ffffff"
