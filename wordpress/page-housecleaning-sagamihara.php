@@ -920,6 +920,7 @@ $hc_form_id = 0;
     /* 実写真（ダミー枠と同じ場所・同じ寸法に入る） */
     .hc-photo { display: block; width: 100%; height: auto; object-fit: cover; background: #eef2f4; }
     .hc-photo--service { aspect-ratio: 4 / 3; border-bottom: 2px solid var(--hc-line); }
+    .hc-photo--flow { aspect-ratio: 16 / 10; border-radius: 10px; }
     .hc-ba-wrap { margin-bottom: 36px; }
     .hc-visual-heading { margin: 0 0 16px; color: #222; font-size: 1.05rem; text-align: center; }
     .hc-ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -1664,10 +1665,10 @@ $hc_form_id = 0;
       <h2 class="hc-title">ご依頼の流れ</h2>
       <p class="hc-lead">お問い合わせからお支払いまで4つのステップです</p>
       <div class="hc-flow">
-        <article class="hc-flow__item"><div><h3>01　お問い合わせ</h3><p>お電話またはフォームからご連絡ください。<strong>お電話ならその場でおよその金額をお伝えします。</strong>気になる場所とお部屋の広さなどを教えてください。<br>電話 090-2162-6510（9:00〜19:00・年中無休）／フォームは24時間受け付けています。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-contact" role="img" aria-label="お問い合わせのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📞</span><strong>お問い合わせの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-        <article class="hc-flow__item"><div><h3>02　お見積もり</h3><p><strong>無料です。出張費もいただきません。</strong>ご希望の場所を見て洗う場所と金額をお伝えします。汚れの状態で追加の料金が必要な場合もこの時にご説明します。<strong>作業内容と金額を書いた紙（見積り）をお渡しします。その場で決めていただく必要はありません。</strong><br>※お見積もりは作業の前日までに行う場合と、作業当日に行う場合があります。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-quote" role="img" aria-label="お見積もりのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📝</span><strong>お見積もりの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>01　お問い合わせ</h3><p>お電話またはフォームからご連絡ください。<strong>お電話ならその場でおよその金額をお伝えします。</strong>気になる場所とお部屋の広さなどを教えてください。<br>電話 090-2162-6510（9:00〜19:00・年中無休）／フォームは24時間受け付けています。</p></div><img class="hc-photo hc-photo--flow" src="<?php echo get_stylesheet_directory_uri(); ?>/images/flow-contact.jpg" width="1100" height="688" loading="lazy" decoding="async" alt="スマートフォンから問い合わせているところ"></article>
+        <article class="hc-flow__item"><div><h3>02　お見積もり</h3><p><strong>無料です。出張費もいただきません。</strong>ご希望の場所を見て洗う場所と金額をお伝えします。汚れの状態で追加の料金が必要な場合もこの時にご説明します。<strong>作業内容と金額を書いた紙（見積り）をお渡しします。その場で決めていただく必要はありません。</strong><br>※お見積もりは作業の前日までに行う場合と、作業当日に行う場合があります。</p></div><img class="hc-photo hc-photo--flow" src="<?php echo get_stylesheet_directory_uri(); ?>/images/flow-quote.jpg" width="1100" height="688" loading="lazy" decoding="async" alt="見積もりのイメージ。家の模型と電卓"></article>
         <article class="hc-flow__item"><div><h3>03　クリーニング</h3><p><strong>始める前にどこをどう洗うかを一緒に見ます。</strong>立ち会いは最初と最後だけで大丈夫です。途中でお出かけになっても構いません。<strong>ずっとお留守の場合は始める前と終わったあとの写真をお送りしてお電話でご報告します。</strong></p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-cleaning" role="img" aria-label="クリーニング作業のイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>🧹</span><strong>クリーニング作業の画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-        <article class="hc-flow__item"><div><h3>04　お支払い</h3><p><strong>作業が終わった後に一緒に見ていただきます。</strong>気になるところがあればその場で直します。仕上がりをご確認いただいてから、<strong>現金</strong>でお支払いください。<strong>領収書もお出しします。</strong></p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-payment" role="img" aria-label="お支払いのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>💴</span><strong>お支払いの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>04　お支払い</h3><p><strong>作業が終わった後に一緒に見ていただきます。</strong>気になるところがあればその場で直します。仕上がりをご確認いただいてから、<strong>現金</strong>でお支払いください。<strong>領収書もお出しします。</strong></p></div><img class="hc-photo hc-photo--flow" src="<?php echo get_stylesheet_directory_uri(); ?>/images/flow-payment.jpg" width="1100" height="688" loading="lazy" decoding="async" alt="現金でのお支払いのイメージ"></article>
       </div>
     </div>
   </section>
