@@ -1408,7 +1408,7 @@ $hc_form_id = 0;
   <!-- 1. 心をつかむ -->
   <section class="hc-hero">
     <div class="hc-hero__bg" aria-hidden="true">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/hero_new.png" alt="">
+      <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/hero-housecleaning.jpg" width="1920" height="1080" fetchpriority="high" decoding="async" alt="">
       <span></span>
     </div>
     <div class="hc-container hc-hero__grid">
