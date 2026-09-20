@@ -572,22 +572,6 @@ $hc_form_id = 0;
     }
     .hc-cta .hc-button--secondary { border-color: #fff; background: transparent; color: #fff; }
 
-    .hc-legal {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .hc-legal__card {
-      padding: 24px;
-      border: 1px solid var(--hc-line);
-      border-radius: 16px;
-      background: #fff;
-    }
-    .hc-legal__card h3 { margin: 0 0 10px; font-size: 1rem; }
-    .hc-legal__card ul { margin: 0; padding-left: 1.2em; color: var(--hc-muted); font-size: .88rem; }
-    .hc-legal__links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; }
-    .hc-legal__links a { color: var(--hc-blue); font-size: .84rem; font-weight: 800; text-decoration: underline; }
-
     .hc-footer { padding: 32px 0 98px; background: #17282f; color: rgba(255,255,255,.72); }
     .hc-footer__top { display: flex; justify-content: space-between; gap: 24px; }
     .hc-footer strong { color: #fff; }
@@ -719,7 +703,7 @@ $hc_form_id = 0;
       .hc-recommend-list li:nth-last-child(2) { border-bottom: 1px solid var(--hc-line); }
       .hc-proof__grid { grid-template-columns: 1fr; }
       .hc-proof__item + .hc-proof__item { border-top: 1px solid var(--hc-line); border-left: 0; }
-      .hc-card-grid, .hc-step-grid, .hc-service-grid, .hc-voices, .hc-legal { grid-template-columns: 1fr; }
+      .hc-card-grid, .hc-step-grid, .hc-service-grid, .hc-voices { grid-template-columns: 1fr; }
       .hc-service--wide { grid-column: auto; }
       .hc-service--wide .hc-service__top { grid-template-columns: 1fr; gap: 4px; }
       .hc-profile { grid-template-columns: 1fr; padding: 28px; }
@@ -1629,10 +1613,8 @@ $hc_form_id = 0;
       </div>
       <p class="hc-price-attention">表示はすべて<strong>税込</strong>です。汚れの状態によっては、<strong>追加の料金をいただくことがあります。</strong>金額は、<strong>見積もりのときに、内容をご説明したうえで決めます。決まった金額から、あとで増えることはありません。</strong></p>
       <p class="hc-note">駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p>
-      <div class="hc-legal">
-        <article class="hc-legal__card"><h3>お支払い</h3><ul><li>現金のみ</li><li>領収書をお出しします</li></ul></article>
-        <article class="hc-legal__card"><h3>キャンセル</h3><ul><li>作業の前日までにお見積もりをした場合 … 作業の前日まで無料</li><li>作業当日にお見積もりをした場合 … 作業を始めるまで無料</li><li>日程の変更は、前日までにご連絡ください</li></ul></article>
-      </div>
+      <p class="hc-note"><strong>お支払いは現金のみです。</strong>領収書をお出しします。</p>
+      <p class="hc-note"><strong>キャンセルは無料です。</strong>作業の前日までにお見積もりをした場合は作業の前日まで、作業当日にお見積もりをした場合は作業を始めるまで、お金はいただきません。日程の変更は前日までにご連絡ください。</p>
     </div>
   </section>
 
@@ -1673,19 +1655,6 @@ $hc_form_id = 0;
     </div>
   </section>
 
-  <!-- 14. 申し込みフォーム -->
-  <section class="hc-section hc-section--tint" id="form">
-    <div class="hc-container">
-      <p class="hc-eyebrow">Contact</p>
-      <h2 class="hc-title">フォームでご相談ください</h2>
-      <p class="hc-lead">見積もりは無料です。出張費もいただきません。<br>いただいた内容は、ご相談のためだけに使います。</p>
-      <div class="hc-form">
-        <?php /* HC_FORM */ echo $hc_form_id ? do_shortcode('[contact-form-7 id="' . (int) $hc_form_id . '"]') : '<p class="hc-form__fallback">ただいまフォームを準備しています。お急ぎの方は <a href="tel:09021626510">090-2162-6510</a> へお電話ください。</p>'; ?>
-        <p class="hc-form__privacy">いただいた内容の扱いは<a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a>をご覧ください。</p>
-      </div>
-    </div>
-  </section>
-
   <!-- 15. ご依頼の流れ -->
   <section class="hc-section" id="flow">
     <div class="hc-container">
@@ -1722,6 +1691,19 @@ $hc_form_id = 0;
       <div class="hc-actions">
         <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="final">📞 電話で聞いてみる</a>
         <a class="hc-button hc-button--secondary" href="#form">✉️ フォームで相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. 申し込みフォーム -->
+  <section class="hc-section hc-section--tint" id="form">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Contact</p>
+      <h2 class="hc-title">フォームでご相談ください</h2>
+      <p class="hc-lead">見積もりは無料です。出張費もいただきません。<br>いただいた内容は、ご相談のためだけに使います。</p>
+      <div class="hc-form">
+        <?php /* HC_FORM */ echo $hc_form_id ? do_shortcode('[contact-form-7 id="' . (int) $hc_form_id . '"]') : '<p class="hc-form__fallback">ただいまフォームを準備しています。お急ぎの方は <a href="tel:09021626510">090-2162-6510</a> へお電話ください。</p>'; ?>
+        <p class="hc-form__privacy">いただいた内容の扱いは<a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a>をご覧ください。</p>
       </div>
     </div>
   </section>

@@ -560,22 +560,6 @@
     }
     .hc-cta .hc-button--secondary { border-color: #fff; background: transparent; color: #fff; }
 
-    .hc-legal {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .hc-legal__card {
-      padding: 24px;
-      border: 1px solid var(--hc-line);
-      border-radius: 16px;
-      background: #fff;
-    }
-    .hc-legal__card h3 { margin: 0 0 10px; font-size: 1rem; }
-    .hc-legal__card ul { margin: 0; padding-left: 1.2em; color: var(--hc-muted); font-size: .88rem; }
-    .hc-legal__links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; }
-    .hc-legal__links a { color: var(--hc-blue); font-size: .84rem; font-weight: 800; text-decoration: underline; }
-
     .hc-footer { padding: 32px 0 98px; background: #17282f; color: rgba(255,255,255,.72); }
     .hc-footer__top { display: flex; justify-content: space-between; gap: 24px; }
     .hc-footer strong { color: #fff; }
@@ -707,7 +691,7 @@
       .hc-recommend-list li:nth-last-child(2) { border-bottom: 1px solid var(--hc-line); }
       .hc-proof__grid { grid-template-columns: 1fr; }
       .hc-proof__item + .hc-proof__item { border-top: 1px solid var(--hc-line); border-left: 0; }
-      .hc-card-grid, .hc-step-grid, .hc-service-grid, .hc-voices, .hc-legal { grid-template-columns: 1fr; }
+      .hc-card-grid, .hc-step-grid, .hc-service-grid, .hc-voices { grid-template-columns: 1fr; }
       .hc-service--wide { grid-column: auto; }
       .hc-service--wide .hc-service__top { grid-template-columns: 1fr; gap: 4px; }
       .hc-profile { grid-template-columns: 1fr; padding: 28px; }
@@ -1617,10 +1601,8 @@
       </div>
       <p class="hc-price-attention">表示はすべて<strong>税込</strong>です。汚れの状態によっては、<strong>追加の料金をいただくことがあります。</strong>金額は、<strong>見積もりのときに、内容をご説明したうえで決めます。決まった金額から、あとで増えることはありません。</strong></p>
       <p class="hc-note">駐車スペースをご用意いただける場合、駐車場代はかかりません。コインパーキングを使用する場合は、利用実費を別途お願いします。</p>
-      <div class="hc-legal">
-        <article class="hc-legal__card"><h3>お支払い</h3><ul><li>現金のみ</li><li>領収書をお出しします</li></ul></article>
-        <article class="hc-legal__card"><h3>キャンセル</h3><ul><li>作業の前日までにお見積もりをした場合 … 作業の前日まで無料</li><li>作業当日にお見積もりをした場合 … 作業を始めるまで無料</li><li>日程の変更は、前日までにご連絡ください</li></ul></article>
-      </div>
+      <p class="hc-note"><strong>お支払いは現金のみです。</strong>領収書をお出しします。</p>
+      <p class="hc-note"><strong>キャンセルは無料です。</strong>作業の前日までにお見積もりをした場合は作業の前日まで、作業当日にお見積もりをした場合は作業を始めるまで、お金はいただきません。日程の変更は前日までにご連絡ください。</p>
     </div>
   </section>
 
@@ -1656,6 +1638,46 @@
       <p>見積もりは無料です。出張費もいただきません。</p>
       <div class="hc-actions">
         <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="after-price">📞 電話で聞いてみる</a>
+        <a class="hc-button hc-button--secondary" href="#form">✉️ フォームで相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. ご依頼の流れ -->
+  <section class="hc-section" id="flow">
+    <div class="hc-container">
+      <h2 class="hc-title">ご依頼の流れ</h2>
+      <p class="hc-lead">お問い合わせからお支払いまで4つのステップです</p>
+      <div class="hc-flow">
+        <article class="hc-flow__item"><div><h3>01　お問い合わせ</h3><p>お電話またはフォームからご連絡ください。<strong>お電話ならその場でおよその金額をお伝えします。</strong>気になる場所とお部屋の広さなどを教えてください。<br>電話 090-2162-6510（9:00〜19:00・年中無休）／フォームは24時間受け付けています。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-contact" role="img" aria-label="お問い合わせのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📞</span><strong>お問い合わせの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>02　お見積もり</h3><p><strong>無料です。出張費もいただきません。</strong>ご希望の場所を見て洗う場所と金額をお伝えします。汚れの状態で追加の料金が必要な場合もこの時にご説明します。<strong>作業内容と金額を書いた紙（見積り）をお渡しします。その場で決めていただく必要はありません。</strong><br>※お見積もりは作業の前日までに行う場合と、作業当日に行う場合があります。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-quote" role="img" aria-label="お見積もりのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📝</span><strong>お見積もりの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>03　クリーニング</h3><p><strong>始める前にどこをどう洗うかを一緒に見ます。</strong>立ち会いは最初と最後だけで大丈夫です。途中でお出かけになっても構いません。<strong>ずっとお留守の場合は始める前と終わったあとの写真をお送りしてお電話でご報告します。</strong></p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-cleaning" role="img" aria-label="クリーニング作業のイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>🧹</span><strong>クリーニング作業の画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+        <article class="hc-flow__item"><div><h3>04　お支払い</h3><p><strong>作業が終わった後に一緒に見ていただきます。</strong>気になるところがあればその場で直します。仕上がりをご確認いただいてから、<strong>現金</strong>でお支払いください。<strong>領収書もお出しします。</strong></p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-payment" role="img" aria-label="お支払いのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>💴</span><strong>お支払いの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16. 最後に -->
+  <section class="hc-section">
+    <div class="hc-container">
+      <p class="hc-eyebrow">Finally</p>
+      <h2 class="hc-title">最後に</h2>
+      <div class="hc-message">
+        <p><strong>いつも気になっていたと思います。</strong><br>目に入るたびに「そのうちやろう」と思いながら、そのままになってきたのではないでしょうか。</p>
+        <p><strong>洗ってしまえば1〜2時間の作業で終わります。</strong><br>いつも気になっていたことがその日のうちに片づきます。</p>
+        <p><strong>一番気になってる場所から始めてください、浴室だけ換気扇だけから。</strong></p>
+        <p><strong>「この汚れ落ちますか」だけでも構いません。</strong><br>お願いするかどうかは私の話を聞いてから決めていただいて大丈夫です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. 申し込み -->
+  <section class="hc-cta">
+    <div class="hc-container">
+      <h2>気になる場所からご相談ください</h2>
+      <p>見積もりは無料です。出張費もいただきません。</p>
+      <div class="hc-actions">
+        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="final">📞 電話で聞いてみる</a>
         <a class="hc-button hc-button--secondary" href="#form">✉️ フォームで相談する</a>
       </div>
     </div>
@@ -1705,46 +1727,6 @@
           <p><input type="submit" value="この内容で相談する"></p>
         </form>
         <p class="hc-form__privacy">いただいた内容の扱いは<a href="https://gururiyahonpo.com/privacy/">プライバシーポリシー</a>をご覧ください。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 15. ご依頼の流れ -->
-  <section class="hc-section" id="flow">
-    <div class="hc-container">
-      <h2 class="hc-title">ご依頼の流れ</h2>
-      <p class="hc-lead">お問い合わせからお支払いまで4つのステップです</p>
-      <div class="hc-flow">
-        <article class="hc-flow__item"><div><h3>01　お問い合わせ</h3><p>お電話またはフォームからご連絡ください。<strong>お電話ならその場でおよその金額をお伝えします。</strong>気になる場所とお部屋の広さなどを教えてください。<br>電話 090-2162-6510（9:00〜19:00・年中無休）／フォームは24時間受け付けています。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-contact" role="img" aria-label="お問い合わせのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📞</span><strong>お問い合わせの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-        <article class="hc-flow__item"><div><h3>02　お見積もり</h3><p><strong>無料です。出張費もいただきません。</strong>ご希望の場所を見て洗う場所と金額をお伝えします。汚れの状態で追加の料金が必要な場合もこの時にご説明します。<strong>作業内容と金額を書いた紙（見積り）をお渡しします。その場で決めていただく必要はありません。</strong><br>※お見積もりは作業の前日までに行う場合と、作業当日に行う場合があります。</p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-quote" role="img" aria-label="お見積もりのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>📝</span><strong>お見積もりの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-        <article class="hc-flow__item"><div><h3>03　クリーニング</h3><p><strong>始める前にどこをどう洗うかを一緒に見ます。</strong>立ち会いは最初と最後だけで大丈夫です。途中でお出かけになっても構いません。<strong>ずっとお留守の場合は始める前と終わったあとの写真をお送りしてお電話でご報告します。</strong></p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-cleaning" role="img" aria-label="クリーニング作業のイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>🧹</span><strong>クリーニング作業の画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-        <article class="hc-flow__item"><div><h3>04　お支払い</h3><p><strong>作業が終わった後に一緒に見ていただきます。</strong>気になるところがあればその場で直します。仕上がりをご確認いただいてから、<strong>現金</strong>でお支払いください。<strong>領収書もお出しします。</strong></p></div><div class="hc-image-slot hc-flow__image" data-image-slot="flow-payment" role="img" aria-label="お支払いのイメージ画像を入れる予定"><div class="hc-image-slot__inner"><span>💴</span><strong>お支払いの画像</strong><small>ダミー画像／後で差し替え</small></div></div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 16. 最後に -->
-  <section class="hc-section">
-    <div class="hc-container">
-      <p class="hc-eyebrow">Finally</p>
-      <h2 class="hc-title">最後に</h2>
-      <div class="hc-message">
-        <p><strong>いつも気になっていたと思います。</strong><br>目に入るたびに「そのうちやろう」と思いながら、そのままになってきたのではないでしょうか。</p>
-        <p><strong>洗ってしまえば1〜2時間の作業で終わります。</strong><br>いつも気になっていたことがその日のうちに片づきます。</p>
-        <p><strong>一番気になってる場所から始めてください、浴室だけ換気扇だけから。</strong></p>
-        <p><strong>「この汚れ落ちますか」だけでも構いません。</strong><br>お願いするかどうかは私の話を聞いてから決めていただいて大丈夫です。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 14. 申し込み -->
-  <section class="hc-cta">
-    <div class="hc-container">
-      <h2>気になる場所からご相談ください</h2>
-      <p>見積もりは無料です。出張費もいただきません。</p>
-      <div class="hc-actions">
-        <a class="hc-button hc-button--primary" href="tel:09021626510" data-cta-location="final">📞 電話で聞いてみる</a>
-        <a class="hc-button hc-button--secondary" href="#form">✉️ フォームで相談する</a>
       </div>
     </div>
   </section>
