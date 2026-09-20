@@ -921,6 +921,8 @@ $hc_form_id = 0;
     .hc-photo { display: block; width: 100%; height: auto; object-fit: cover; background: #eef2f4; }
     .hc-photo--service { aspect-ratio: 4 / 3; border-bottom: 2px solid var(--hc-line); }
     .hc-photo--flow { aspect-ratio: 16 / 10; border-radius: 10px; }
+    .hc-photo--area { aspect-ratio: 16 / 7; margin-top: 24px; border-radius: 12px; }
+    .hc-photo--profile { width: 100%; aspect-ratio: 1; border-radius: 50%; }
     .hc-ba-wrap { margin-bottom: 36px; }
     .hc-visual-heading { margin: 0 0 16px; color: #222; font-size: 1.05rem; text-align: center; }
     .hc-ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -1502,7 +1504,7 @@ $hc_form_id = 0;
       <p class="hc-eyebrow">Profile</p>
       <h2 class="hc-title">ご相談を受ける人</h2>
       <div class="hc-profile">
-        <div class="hc-image-slot hc-image-slot--profile" data-image-slot="profile" role="img" aria-label="代表者の写真を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">👤</span><strong>代表写真</strong><small>推奨：正方形／作業着・白い壁か外</small></div></div>
+        <img class="hc-photo hc-photo--profile" src="<?php echo get_stylesheet_directory_uri(); ?>/images/profile.jpg" width="720" height="720" loading="lazy" decoding="async" alt="浴室のタイルを洗っている代表の樋口">
         <div>
           <p class="hc-profile__role">ぐるり屋本舗</p>
           <h2>樋口 勝己</h2>
@@ -1642,7 +1644,7 @@ $hc_form_id = 0;
         <li class="hc-area-chip hc-area-chip--part"><span aria-hidden="true">📍</span>愛川町</li>
       </ul>
       <p class="hc-note">一部のエリアは、場所によってお受けできないことがあります。お電話で住所をお聞きしてお答えします。</p>
-      <div class="hc-image-slot hc-image-slot--area" data-image-slot="area-map" role="img" aria-label="対応エリアの地図を入れる予定"><div class="hc-image-slot__inner"><span class="hc-image-slot__icon">🗺️</span><strong>対応エリアの地図</strong><small>推奨：横長／相模原市・町田市・厚木市・多摩市・愛川町を色分け</small></div></div>
+      <img class="hc-photo hc-photo--area" src="<?php echo get_stylesheet_directory_uri(); ?>/images/area-map.svg" width="1120" height="490" loading="lazy" decoding="async" alt="対応エリアの地図。相模原市と町田市の全域へ伺います">
       <p class="hc-note">エリアの外は、交通費を別にいただきます。</p>
     </div>
   </section>
